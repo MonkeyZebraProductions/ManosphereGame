@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PrototypeManager : MonoBehaviour
 {
-    // Choose 3 random circles to be enemies at the start of the game
+    // Choose up to 3 random circles to be enemies at the start of the game
     void Start()
     {
         Circle[] allCircles = FindObjectsByType<Circle>(FindObjectsSortMode.None);

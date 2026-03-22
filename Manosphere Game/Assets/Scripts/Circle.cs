@@ -29,7 +29,7 @@ public class Circle : MonoBehaviour
         linesParent = GameObject.Find("Connections");
         touchAction = InputSystem.actions.FindAction("Touch");
         timeToInfect = 0f;
-        nextInfectionTime = Random.Range(infectionTime, infectionTime*2f);
+        nextInfectionTime = Random.Range(infectionTime, infectionTime*1.5f);
     }
 
     void Update()
@@ -132,7 +132,7 @@ public class Circle : MonoBehaviour
             if (timeToInfect >= nextInfectionTime)
             {
                 timeToInfect = 0f;
-                nextInfectionTime = Random.Range(infectionTime, infectionTime*2f);
+                nextInfectionTime = Random.Range(infectionTime, infectionTime*1.5f);
 
                 Collider2D[] collidedCircles = Physics2D.OverlapCircleAll(transform.position, maxConnectionDistance, LayerMask.GetMask("No Cut"));
                 List<GameObject> potentialConnections = new List<GameObject>();
@@ -198,7 +198,7 @@ public class Circle : MonoBehaviour
             if (timeToInfect >= nextInfectionTime)
             {
                 timeToInfect = 0f;
-                nextInfectionTime = Random.Range(infectionTime, infectionTime*2f);
+                nextInfectionTime = Random.Range(infectionTime, infectionTime*1.5f);
 
                 List<GameObject> potentialGoodLinesToBreak = new List<GameObject>();
 
