@@ -7,7 +7,7 @@ public class Circle : MonoBehaviour
     [SerializeField] GameObject linePrefab;
     [SerializeField] float maxConnectionDistance = 3f;
     [SerializeField] bool isEnemy;
-    [SerializeField] float infectionTime = 3f;
+    [SerializeField] float infectionTime = 5f;
 
     GameObject linesParent;
     GameObject currentLine;
@@ -84,6 +84,7 @@ public class Circle : MonoBehaviour
             if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<Circle>() != null && !hitCollider.GetComponent<Circle>().IsDiscovered())
             {
                 currentLineRenderer.SetPosition(1, hitCollider.transform.position);
+                currentLine.GetComponent<Line>().SetCircles(gameObject, hitCollider.gameObject);
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
@@ -103,6 +104,7 @@ public class Circle : MonoBehaviour
                         if (otherCircleScript.NumberOfConnections() < 3 && !otherCircleScript.IsEnemy())
                         {
                             otherCircleScript.Infect(true);
+                            currentLine.GetComponent<Line>().InfectLine();
                         }
                     }
                 }
@@ -144,12 +146,14 @@ public class Circle : MonoBehaviour
                     currentLineRenderer = currentLine.GetComponent<LineRenderer>();
                     currentLineRenderer.SetPosition(0, transform.position);
                     currentLineRenderer.SetPosition(1, circleToConnect.transform.position);
+                    currentLine.GetComponent<Line>().SetCircles(gameObject, circleToConnect);
                     connectedCircles.Add(circleToConnect);
                     Circle otherCircleScript = circleToConnect.GetComponent<Circle>();
                     if (otherCircleScript != null)
                     {
                         otherCircleScript.AddConnectedCircle(gameObject);
                         otherCircleScript.Infect(true);
+                        currentLine.GetComponent<Line>().InfectLine();
                     }
                 }
             }
@@ -183,6 +187,7 @@ public class Circle : MonoBehaviour
                 if (circleScript.NumberOfConnections() < 3 && !circleScript.IsEnemy())
                 {
                     circleScript.Infect(true);
+                    circleScript.BacktrackLineInfection();
                 }
             }
         }
@@ -220,9 +225,26 @@ public class Circle : MonoBehaviour
                 if (circleScript != null && !circleScript.IsEnemy() && circleScript.NumberOfConnections() < 3)
                 {
                     circleScript.Infect(true);
+
+                    // Finding the line that connects this circle to the infected circle and marking it as infected as well
+                    foreach (Transform line in linesParent.transform)
+                    {
+                        Line lineScript = line.GetComponent<Line>();
+                        if (lineScript != null && ((lineScript.GetCircle0() == gameObject && lineScript.GetCircle1() == circle) || (lineScript.GetCircle1() == gameObject && lineScript.GetCircle0() == circle)))
+                        {
+                            lineScript.InfectLine();
+                            break;
+                        }
+                    }
                 }
             }
         }
+    }
+
+    // Backtracks the infection to the line that connected this circle to the one that infected it, so that it also turns red
+    public void BacktrackLineInfection()
+    {
+        currentLine.GetComponent<Line>().InfectLine();
     }
 
     public bool IsEnemy()

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6644803666618174983}
   - component: {fileID: 7420522054019618994}
+  - component: {fileID: 8920506754407505884}
   m_Layer: 0
   m_Name: Line
   m_TagString: Untagged
@@ -142,3 +143,15 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &8920506754407505884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350646647457243705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d81c21f35bd8cc40a24ebdf04021562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Line

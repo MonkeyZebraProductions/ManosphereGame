@@ -143,3 +143,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Circle
   linePrefab: {fileID: 5350646647457243705, guid: 306e3fd75726fbb44adfb655a12c33a0, type: 3}
   maxConnectionDistance: 3
+  isEnemy: 0
+  infectionTime: 5
