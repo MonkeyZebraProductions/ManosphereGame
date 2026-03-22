@@ -153,11 +153,8 @@ public class Circle : MonoBehaviour
                     // Connect to a random potential circle
                     GameObject circleToConnect = potentialConnections[Random.Range(0, potentialConnections.Count)];
                     currentLine = Instantiate(linePrefab, linesParent.transform);
-                    currentLineRenderer = currentLine.GetComponent<LineRenderer>();
-                    currentLineRenderer.SetPosition(0, transform.position);
-                    currentLineRenderer.SetPosition(1, circleToConnect.transform.position);
                     currentLine.GetComponent<Line>().SetCircles(gameObject, circleToConnect);
-                    currentLine.GetComponent<Line>().CreateLineCollider();
+                    currentLine.GetComponent<Line>().AnimateLine(transform.position, circleToConnect.transform.position);
                     connectedCircles.Add(circleToConnect);
                     Circle otherCircleScript = circleToConnect.GetComponent<Circle>();
                     currentLine.GetComponent<Line>().InfectLine();
@@ -363,5 +360,17 @@ public class Circle : MonoBehaviour
     public int NumberOfConnections()
     {
         return connectedCircles.Count;
+    }
+
+    public void SetEnemy(bool enemy)
+    {
+        isEnemy = enemy;
+    }
+
+    // For debugging purposes, visualize the max connection distance in the editor
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, maxConnectionDistance);
     }
 }

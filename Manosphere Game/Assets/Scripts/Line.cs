@@ -1,17 +1,50 @@
 using UnityEngine;
+using System.Collections;
 
 public class Line : MonoBehaviour
 {
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] int lineHealth = 6;
+    [SerializeField] float animationSpeed = 6f;
 
     GameObject circle0;
     GameObject circle1;
     bool breakable;
+    bool animating;
+    float animationProgress;
+    Vector3 startPos;
+    Vector3 endPos;
 
     void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
+        animationProgress = 0f;
+    }
+
+    public void AnimateLine(Vector3 start, Vector3 end)
+    {
+        startPos = start;
+        endPos = end;
+        lineRenderer.SetPosition(0, startPos);
+        lineRenderer.SetPosition(1, startPos);
+        animationProgress = 0f;
+        animating = true;
+    }
+
+    void Update()
+    {
+        if (animating)
+        {
+            animationProgress += Time.deltaTime * animationSpeed;
+            lineRenderer.SetPosition(1, Vector3.Lerp(startPos, endPos, animationProgress));
+
+            if (animationProgress >= 1f)
+            {
+                lineRenderer.SetPosition(1, endPos);
+                animating = false;
+                animationProgress = 0f;
+                CreateLineCollider();
+            }
+        }
     }
 
     public void SetCircles(GameObject c0, GameObject c1)
@@ -67,6 +100,7 @@ public class Line : MonoBehaviour
         if (breakable && other.CompareTag("Cut"))
         {
             lineHealth--;
+            StartCoroutine(Flash());
 
             if (lineHealth <= 0)
             {
@@ -87,6 +121,21 @@ public class Line : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    IEnumerator Flash()
+    {
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        lineRenderer.startColor = Color.red;
+        lineRenderer.endColor = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        lineRenderer.startColor = Color.red;
+        lineRenderer.endColor = Color.red;
     }
 
     public void BreakGoodLine()

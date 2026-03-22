@@ -156,3 +156,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Line
   lineRenderer: {fileID: 7420522054019618994}
+  lineHealth: 6
+  animationSpeed: 6
