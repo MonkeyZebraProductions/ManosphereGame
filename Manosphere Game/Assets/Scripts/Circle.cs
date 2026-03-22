@@ -17,25 +17,25 @@ public class Circle : MonoBehaviour
     List<GameObject> connectedCircles = new List<GameObject>();
     bool isInfected;
     float timeToInfect;
+    float nextInfectionTime;
 
     // Prevents players from connecting lines to enemies once they have been discovered
     bool enemyDiscovered;
-    float lineAlpha = 0;
-    Transform targetPosition;
-    bool firstWaveofInfection;
 
     void Start()
     {
         isDragging = false;
+        isInfected = false;
         linesParent = GameObject.Find("Connections");
         touchAction = InputSystem.actions.FindAction("Touch");
         timeToInfect = 0f;
+        nextInfectionTime = Random.Range(infectionTime, infectionTime*2f);
     }
 
     void Update()
     {
-        // Prevents players from connecting lines from enemies once they have been discovered
-        if (touchAction.IsPressed() && !enemyDiscovered)
+        // Prevents players from connecting lines from enemies once they have been discovered or if the circle is already infected
+        if (touchAction.IsPressed() && !enemyDiscovered && !isInfected)
         {
             if (!isDragging)
             {
@@ -81,13 +81,14 @@ public class Circle : MonoBehaviour
                 mousePosition = transform.position + direction * maxConnectionDistance;
             }
 
-            Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
+            Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition, LayerMask.GetMask("No Cut"));
 
             // Check if the line ends over another circle that is not the same as the starting circle, is not already connected and is not an enemy that has already been discovered
             if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<Circle>() != null && !hitCollider.GetComponent<Circle>().IsDiscovered())
             {
                 currentLineRenderer.SetPosition(1, hitCollider.transform.position);
                 currentLine.GetComponent<Line>().SetCircles(gameObject, hitCollider.gameObject);
+                currentLine.GetComponent<Line>().CreateLineCollider();
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
@@ -102,14 +103,19 @@ public class Circle : MonoBehaviour
                 {
                     enemyDiscovered = true;
                     GetComponent<SpriteRenderer>().color = Color.red;
+                    currentLine.GetComponent<Line>().InfectLine();
                     if (otherCircleScript != null)
                     {
                         if (otherCircleScript.NumberOfConnections() < 3 && !otherCircleScript.IsEnemy())
                         {
                             otherCircleScript.Infect(true);
-                            currentLine.GetComponent<Line>().InfectLine();
                         }
                     }
+                }
+                // Remove infection from a non-enemy circle if it was infected and is not connected to an infected/enemy circle anymore
+                else if (otherCircleScript != null && otherCircleScript.IsInfected() && !otherCircleScript.IsEnemy() && !otherCircleScript.IsConnectedToInfectedOrEnemy())
+                {
+                    otherCircleScript.Infect(false);
                 }
             }
             else
@@ -118,18 +124,19 @@ public class Circle : MonoBehaviour
             }
         }
 
-        // Once infected or discovered, circles start automatically connecting to each other
+        // Once discovered or infected and connected to an enemy, circles start automatically connecting to each other
         if (enemyDiscovered || (isInfected && IsConnectedToEnemy()))
         {
             timeToInfect += Time.deltaTime;
 
-            if (timeToInfect >= infectionTime)
+            if (timeToInfect >= nextInfectionTime)
             {
                 timeToInfect = 0f;
-                lineAlpha = 0f;
+                nextInfectionTime = Random.Range(infectionTime, infectionTime*2f);
 
-                Collider2D[] collidedCircles = Physics2D.OverlapCircleAll(transform.position, maxConnectionDistance);
+                Collider2D[] collidedCircles = Physics2D.OverlapCircleAll(transform.position, maxConnectionDistance, LayerMask.GetMask("No Cut"));
                 List<GameObject> potentialConnections = new List<GameObject>();
+
                 foreach (Collider2D col in collidedCircles)
                 {
                     Circle colCircleScript = col.GetComponent<Circle>();
@@ -145,42 +152,75 @@ public class Circle : MonoBehaviour
                 {
                     // Connect to a random potential circle
                     GameObject circleToConnect = potentialConnections[Random.Range(0, potentialConnections.Count)];
-                    targetPosition = circleToConnect.transform;
                     currentLine = Instantiate(linePrefab, linesParent.transform);
-                    currentLineRenderer = currentLine.GetComponent<LineRenderer>();
-                    currentLineRenderer.SetPosition(0, transform.position);
-                    //currentLineRenderer.SetPosition(1, circleToConnect.transform.position);
                     currentLine.GetComponent<Line>().SetCircles(gameObject, circleToConnect);
+                    currentLine.GetComponent<Line>().AnimateLine(transform.position, circleToConnect.transform.position);
                     connectedCircles.Add(circleToConnect);
                     Circle otherCircleScript = circleToConnect.GetComponent<Circle>();
+                    currentLine.GetComponent<Line>().InfectLine();
                     if (otherCircleScript != null)
                     {
                         otherCircleScript.AddConnectedCircle(gameObject);
                         otherCircleScript.Infect(true);
-                        currentLine.GetComponent<Line>().InfectLine();
-                        if(!firstWaveofInfection)
+                    }
+                }
+                // If there are no potential circles to connect to and the circle is infected but not an enemy, it should break a random good line that is connected to it
+                else if (potentialConnections.Count == 0 && isInfected && !isEnemy)
+                {
+                    List<GameObject> potentialGoodLinesToBreak = new List<GameObject>();
+
+                    foreach (Transform line in linesParent.transform)
+                    {
+                        Line lineScript = line.GetComponent<Line>();
+                        if (lineScript != null && lineScript.IsGood() && ((lineScript.GetCircle0() == gameObject && lineScript.GetCircle1() != null) || (lineScript.GetCircle1() == gameObject && lineScript.GetCircle0() != null)))
                         {
-                            otherCircleScript.GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f); // Light red for infected circles that are not enemies
+                            potentialGoodLinesToBreak.Add(line.gameObject);
                         }
                     }
-                    firstWaveofInfection = true;
+
+                    if (potentialGoodLinesToBreak.Count > 0)
+                        {
+                            GameObject lineToBreak = potentialGoodLinesToBreak[Random.Range(0, potentialGoodLinesToBreak.Count)];
+                            Line lineScript = lineToBreak.GetComponent<Line>();
+                            if (lineScript != null)
+                            {
+                                lineScript.BreakGoodLine();
+                            }
+                        }
                 }
             }
-            if (lineAlpha <= 1f  && firstWaveofInfection)
+        }
+        // If the circle is infected but not an enemy and not connected to an enemy, it should break a random good line that is connected to it
+        else if (isInfected && !IsConnectedToEnemy() && !isEnemy)
+        {
+            timeToInfect += Time.deltaTime;
+
+            if (timeToInfect >= nextInfectionTime)
             {
-                lineAlpha += Time.deltaTime;
-                //Debug.Log(lineAlpha);
-                if (currentLineRenderer != null)
-                {
-                    currentLineRenderer.SetPosition(1, Vector3.Lerp(currentLineRenderer.GetPosition(0), targetPosition.position, lineAlpha));
-                    if (targetPosition.gameObject != null && lineAlpha>0.9f)
-                    {
-                        targetPosition.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f); // Light red for infected circles that are not enemies      
-                    }
+                timeToInfect = 0f;
+                nextInfectionTime = Random.Range(infectionTime, infectionTime*2f);
 
+                List<GameObject> potentialGoodLinesToBreak = new List<GameObject>();
+
+                foreach (Transform line in linesParent.transform)
+                {
+                    Line lineScript = line.GetComponent<Line>();
+                    if (lineScript != null && lineScript.IsGood() && ((lineScript.GetCircle0() == gameObject && lineScript.GetCircle1() != null) || (lineScript.GetCircle1() == gameObject && lineScript.GetCircle0() != null)))
+                    {
+                        potentialGoodLinesToBreak.Add(line.gameObject);
+                    }
+                }
+
+                if (potentialGoodLinesToBreak.Count > 0)
+                {
+                    GameObject lineToBreak = potentialGoodLinesToBreak[Random.Range(0, potentialGoodLinesToBreak.Count)];
+                    Line lineScript = lineToBreak.GetComponent<Line>();
+                    if (lineScript != null)
+                    {
+                        lineScript.BreakGoodLine();
+                    }
                 }
             }
-
         }
         else
         {
@@ -207,13 +247,27 @@ public class Circle : MonoBehaviour
             if (circleScript != null && isEnemy)
             {
                 enemyDiscovered = true;
+                circleScript.BacktrackLineInfection();
                 GetComponent<SpriteRenderer>().color = Color.red;
                 if (circleScript.NumberOfConnections() < 3 && !circleScript.IsEnemy())
                 {
                     circleScript.Infect(true);
-                    circleScript.BacktrackLineInfection();
                 }
             }
+        }
+    }
+
+    public void RemoveConnectedCircle(GameObject circle)
+    {
+        if (connectedCircles.Contains(circle))
+        {
+            connectedCircles.Remove(circle);
+        }
+
+        // Remove infection from the circle if it was infected and is not connected to an infected/enemy circle anymore and has at least 1 connection with another non-infected or non-enemy circle
+        if (connectedCircles.Count > 0 && IsInfected() && !IsConnectedToInfectedOrEnemy())
+        {
+            Infect(false);
         }
     }
 
@@ -230,15 +284,32 @@ public class Circle : MonoBehaviour
         return false;
     }
 
+    public bool IsConnectedToInfectedOrEnemy()
+    {
+        foreach (GameObject circle in connectedCircles)
+        {
+            Circle circleScript = circle.GetComponent<Circle>();
+            if(circleScript != null && (circleScript.IsInfected() || circleScript.IsEnemy()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void Infect(bool infected)
     {
         bool wasAlreadyInfected = isInfected;
         isInfected = infected;
 
-        //if (!isEnemy && infected)
-        //{
-        //    GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f); // Light red for infected circles that are not enemies
-        //}        
+        if (!isEnemy && infected)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f); // Light red for infected circles that are not enemies
+        }
+        else if (!isEnemy && !infected)
+        {
+            GetComponent<SpriteRenderer>().color = Color.white; // Back to normal color if the infection is removed
+        }
 
         // If the circle becomes infected and was not already infected, it should also infect all connected circles that are not enemies and have less than 3 connections
         if (infected && !wasAlreadyInfected)
@@ -289,5 +360,17 @@ public class Circle : MonoBehaviour
     public int NumberOfConnections()
     {
         return connectedCircles.Count;
+    }
+
+    public void SetEnemy(bool enemy)
+    {
+        isEnemy = enemy;
+    }
+
+    // For debugging purposes, visualize the max connection distance in the editor
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, maxConnectionDistance);
     }
 }

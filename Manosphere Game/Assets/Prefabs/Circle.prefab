@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3106429649463110718}
   - component: {fileID: 4565917279953465772}
   - component: {fileID: 6930639592293310298}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Circle
   m_TagString: Circle
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.1
+  m_Radius: 0.125
 --- !u!114 &6930639592293310298
 MonoBehaviour:
   m_ObjectHideFlags: 0
