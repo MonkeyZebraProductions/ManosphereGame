@@ -15,24 +15,25 @@ public class Circle : MonoBehaviour
     bool isDragging;
     InputAction touchAction;
     List<GameObject> connectedCircles = new List<GameObject>();
-
-    //Prevents players from connecting lines to enemies once they have been discovered
-    bool enemyDiscovered;
     bool isInfected;
-    float alpha = 0f;
+    float timeToInfect;
+
+    // Prevents players from connecting lines to enemies once they have been discovered
+    bool enemyDiscovered;
 
     void Start()
     {
         isDragging = false;
         linesParent = GameObject.Find("Connections");
         touchAction = InputSystem.actions.FindAction("Touch");
+        timeToInfect = 0f;
     }
 
     void Update()
     {
+        // Prevents players from connecting lines from enemies once they have been discovered
         if (touchAction.IsPressed() && !enemyDiscovered)
         {
-            //Prevents players from connecting lines to enemies once they have been discovered
             if (!isDragging)
             {
                 // Start line drawing if the touch is over the circle and was just pressed
@@ -79,8 +80,8 @@ public class Circle : MonoBehaviour
 
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
 
-            // Check if the line ends over another circle that is not the same as the starting circle and is not already connected
-            if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject))
+            // Check if the line ends over another circle that is not the same as the starting circle, is not already connected and is not an enemy that has already been discovered
+            if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<Circle>() != null && !hitCollider.GetComponent<Circle>().IsDiscovered())
             {
                 currentLineRenderer.SetPosition(1, hitCollider.transform.position);
                 
@@ -92,13 +93,16 @@ public class Circle : MonoBehaviour
                     otherCircleScript.AddConnectedCircle(gameObject);
                 }
 
-                // When Enemy connects to circle,
-                if(isEnemy)
+                // If the circle is an enemy, mark it as discovered and infect the other circle
+                if (isEnemy)
                 {
                     enemyDiscovered = true;
                     if (otherCircleScript != null)
                     {
-                        otherCircleScript.isInfected = true;
+                        if (otherCircleScript.NumberOfConnections() < 3 && !otherCircleScript.IsEnemy())
+                        {
+                            otherCircleScript.Infect(true);
+                        }
                     }
                 }
             }
@@ -108,23 +112,50 @@ public class Circle : MonoBehaviour
             }
         }
 
-        //Once Infected or discovered, circles start automatically connectint to each other
-        if(enemyDiscovered || (isInfected && IsConnectedToEnemy()))
+        // Once infected or discovered, circles start automatically connecting to each other
+        if (enemyDiscovered || (isInfected && IsConnectedToEnemy()))
         {
-            if(alpha == 0f)
+            timeToInfect += Time.deltaTime;
+
+            if (timeToInfect >= infectionTime)
             {
-                Collider2D[] collidedCircles = Physics2D.OverlapCircleAll(transform.position,maxConnectionDistance);
+                timeToInfect = 0f;
+
+                Collider2D[] collidedCircles = Physics2D.OverlapCircleAll(transform.position, maxConnectionDistance);
                 List<GameObject> potentialConnections = new List<GameObject>();
 
-                //Logic for choosing which circle to potentially infect. Flesh this out once rules are set
                 foreach (Collider2D col in collidedCircles)
                 {
-                    if(!connectedCircles.Contains(col.gameObject))
+                    Circle colCircleScript = col.GetComponent<Circle>();
+
+                    // Check if it is a circle that is not already connected, is not an enemy and has less than 2 connections or is infected
+                    if (!connectedCircles.Contains(col.gameObject) && col.gameObject != gameObject && col.CompareTag("Circle") && colCircleScript != null && !colCircleScript.IsEnemy() && (colCircleScript.NumberOfConnections() < 2 || colCircleScript.IsInfected()))
                     {
                         potentialConnections.Add(col.gameObject);
                     }
                 }
+
+                if (potentialConnections.Count > 0)
+                {
+                    // Connect to a random potential circle
+                    GameObject circleToConnect = potentialConnections[Random.Range(0, potentialConnections.Count)];
+                    currentLine = Instantiate(linePrefab, linesParent.transform);
+                    currentLineRenderer = currentLine.GetComponent<LineRenderer>();
+                    currentLineRenderer.SetPosition(0, transform.position);
+                    currentLineRenderer.SetPosition(1, circleToConnect.transform.position);
+                    connectedCircles.Add(circleToConnect);
+                    Circle otherCircleScript = circleToConnect.GetComponent<Circle>();
+                    if (otherCircleScript != null)
+                    {
+                        otherCircleScript.AddConnectedCircle(gameObject);
+                        otherCircleScript.Infect(true);
+                    }
+                }
             }
+        }
+        else
+        {
+            timeToInfect = 0f;
         }
     }
 
@@ -141,6 +172,18 @@ public class Circle : MonoBehaviour
         if (!connectedCircles.Contains(circle))
         {
             connectedCircles.Add(circle);
+            
+            // If this circle is an enemy, mark the connected circle as infected if it has less than 3 connections and is not an enemy
+            Circle circleScript = circle.GetComponent<Circle>();
+            if (circleScript != null && isEnemy)
+            {
+                enemyDiscovered = true;
+
+                if (circleScript.NumberOfConnections() < 3 && !circleScript.IsEnemy())
+                {
+                    circleScript.Infect(true);
+                }
+            }
         }
     }
 
@@ -155,5 +198,44 @@ public class Circle : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void Infect(bool infected)
+    {
+        bool wasAlreadyInfected = isInfected;
+        isInfected = infected;
+
+        // If the circle becomes infected and was not already infected, it should also infect all connected circles that are not enemies and have less than 3 connections
+        if (infected && !wasAlreadyInfected)
+        {
+            foreach (GameObject circle in connectedCircles)
+            {
+                Circle circleScript = circle.GetComponent<Circle>();
+                if (circleScript != null && !circleScript.IsEnemy() && circleScript.NumberOfConnections() < 3)
+                {
+                    circleScript.Infect(true);
+                }
+            }
+        }
+    }
+
+    public bool IsEnemy()
+    {
+        return isEnemy;
+    }
+
+    public bool IsDiscovered()
+    {
+        return enemyDiscovered;
+    }
+
+    public bool IsInfected()
+    {
+        return isInfected;
+    }
+
+    public int NumberOfConnections()
+    {
+        return connectedCircles.Count;
     }
 }
