@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 3
   tags:
   - Circle
+  - Line
+  - Cut
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - No Cut
   - Water
   - UI
-  - 
-  - 
+  - Cut
+  - Cutter
   - 
   - 
   - 

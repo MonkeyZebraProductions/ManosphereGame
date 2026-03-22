@@ -2,8 +2,17 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
+    [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] int lineHealth = 6;
+
     GameObject circle0;
     GameObject circle1;
+    bool breakable;
+
+    void Start()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+    }
 
     public void SetCircles(GameObject c0, GameObject c1)
     {
@@ -25,5 +34,84 @@ public class Line : MonoBehaviour
     {
         GetComponent<LineRenderer>().startColor = Color.red;
         GetComponent<LineRenderer>().endColor = Color.red;
+        breakable = true;
+    }
+
+    // Creates a collider using the position 0 and 1 of the line renderer
+    public void CreateLineCollider()
+    {
+        Vector3 startPos = lineRenderer.GetPosition(0);
+        Vector3 endPos = lineRenderer.GetPosition(1);
+
+        BoxCollider2D lineCollider = gameObject.AddComponent<BoxCollider2D>();
+        lineCollider.isTrigger = true;
+
+        // Set the size of the collider to match the length of the line minus a small amount to prevent it from extending inside the circles
+        float lineLength = Vector3.Distance(startPos, endPos);
+        lineCollider.size = new Vector2(lineLength - 0.75f, 0.1f);
+
+        // Position the collider at the midpoint of the line
+        Vector3 midPoint = (startPos + endPos) / 2;
+        lineCollider.transform.position = midPoint;
+
+        // Rotate the collider to match the angle of the line
+        float angle = Mathf.Atan2(endPos.y - startPos.y, endPos.x - startPos.x) * Mathf.Rad2Deg;
+        lineCollider.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Set collider offset to zero so it aligns with the line
+        lineCollider.offset = Vector2.zero;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (breakable && other.CompareTag("Cut"))
+        {
+            lineHealth--;
+
+            if (lineHealth <= 0)
+            {
+                // Remove the line from the connected circles' lists
+                Circle circle0Script = circle0.GetComponent<Circle>();
+                Circle circle1Script = circle1.GetComponent<Circle>();
+
+                if (circle0Script != null)
+                {
+                    circle0Script.RemoveConnectedCircle(circle1);
+                }
+
+                if (circle1Script != null)
+                {
+                    circle1Script.RemoveConnectedCircle(circle0);
+                }
+
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    public void BreakGoodLine()
+    {
+        if (!breakable)
+        {
+            Circle circle0Script = circle0.GetComponent<Circle>();
+            Circle circle1Script = circle1.GetComponent<Circle>();
+
+            if (circle0Script != null)
+            {
+                circle0Script.RemoveConnectedCircle(circle1);
+            }
+
+            if (circle1Script != null)
+            {
+                circle1Script.RemoveConnectedCircle(circle0);
+            }
+
+            Destroy(gameObject);
+        }
+    }
+
+    public bool IsGood()
+    {
+        return breakable == false;
     }
 }

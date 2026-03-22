@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6644803666618174983}
   - component: {fileID: 7420522054019618994}
   - component: {fileID: 8920506754407505884}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Line
-  m_TagString: Untagged
+  m_TagString: Line
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,13 +87,13 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.9976915
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.111111395
+        value: 0.125
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -155,3 +155,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d81c21f35bd8cc40a24ebdf04021562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Line
+  lineRenderer: {fileID: 7420522054019618994}
