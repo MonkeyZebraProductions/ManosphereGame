@@ -97,6 +97,7 @@ public class Circle : MonoBehaviour
                 if (isEnemy)
                 {
                     enemyDiscovered = true;
+                    GetComponent<SpriteRenderer>().color = Color.red;
                     if (otherCircleScript != null)
                     {
                         if (otherCircleScript.NumberOfConnections() < 3 && !otherCircleScript.IsEnemy())
@@ -178,7 +179,7 @@ public class Circle : MonoBehaviour
             if (circleScript != null && isEnemy)
             {
                 enemyDiscovered = true;
-
+                GetComponent<SpriteRenderer>().color = Color.red;
                 if (circleScript.NumberOfConnections() < 3 && !circleScript.IsEnemy())
                 {
                     circleScript.Infect(true);
@@ -204,6 +205,11 @@ public class Circle : MonoBehaviour
     {
         bool wasAlreadyInfected = isInfected;
         isInfected = infected;
+
+        if (!isEnemy && infected)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f); // Light red for infected circles that are not enemies
+        }        
 
         // If the circle becomes infected and was not already infected, it should also infect all connected circles that are not enemies and have less than 3 connections
         if (infected && !wasAlreadyInfected)
