@@ -81,7 +81,7 @@ public class Circle : MonoBehaviour
                 pointerPosition = transform.position + direction * maxConnectionDistance;
             }
 
-            Collider2D hitCollider = Physics2D.OverlapPoint(pointerPosition, LayerMask.GetMask("No Cut"));
+            Collider2D hitCollider = Physics2D.OverlapCircle(pointerPosition, 0.3f, LayerMask.GetMask("No Cut"));
 
             // Check if the line ends over another circle that is not the same as the starting circle, is not already connected and is not an enemy that has already been discovered
             if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<Circle>() != null && !hitCollider.GetComponent<Circle>().IsDiscovered())
@@ -233,7 +233,7 @@ public class Circle : MonoBehaviour
         Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
         pointerPosition.z = 0;
         float distance = Vector3.Distance(pointerPosition, transform.position);
-        return distance <= GetComponent<CircleCollider2D>().radius;
+        return distance <= GetComponent<CircleCollider2D>().radius + 0.3f; // Adding a small margin to make it easier to connect lines to the circle
     }
 
     public void AddConnectedCircle(GameObject circle)

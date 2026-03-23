@@ -7,6 +7,8 @@ public class PrototypeManager : MonoBehaviour
     // Choose up to 3 random circles to be enemies at the start of the game
     void Start()
     {
+        Application.targetFrameRate = 30;
+
         Circle[] allCircles = FindObjectsByType<Circle>(FindObjectsSortMode.None);
         for (int i = 0; i < 3; i++)
         {
