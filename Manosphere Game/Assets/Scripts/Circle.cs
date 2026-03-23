@@ -46,9 +46,9 @@ public class Circle : MonoBehaviour
                     currentLineRenderer = currentLine.GetComponent<LineRenderer>();
                     currentLineRenderer.SetPosition(0, transform.position);
                     
-                    Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-                    mousePosition.z = 0;
-                    currentLineRenderer.SetPosition(1, mousePosition);
+                    Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
+                    pointerPosition.z = 0;
+                    currentLineRenderer.SetPosition(1, pointerPosition);
                     
                     isDragging = true;
                 }
@@ -56,32 +56,32 @@ public class Circle : MonoBehaviour
             else
             {
                 // Continue drawing the line to follow the touch position
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-                mousePosition.z = 0;
+                Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
+                pointerPosition.z = 0;
 
-                if (Vector3.Distance(transform.position, mousePosition) > maxConnectionDistance)
+                if (Vector3.Distance(transform.position, pointerPosition) > maxConnectionDistance)
                 {
-                    Vector3 direction = (mousePosition - transform.position).normalized;
-                    mousePosition = transform.position + direction * maxConnectionDistance;
+                    Vector3 direction = (pointerPosition - transform.position).normalized;
+                    pointerPosition = transform.position + direction * maxConnectionDistance;
                 }
 
-                currentLineRenderer.SetPosition(1, mousePosition);
+                currentLineRenderer.SetPosition(1, pointerPosition);
             }
         }
         else if (isDragging)
         {
             isDragging = false;
 
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            mousePosition.z = 0;
+            Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
+            pointerPosition.z = 0;
 
-            if (Vector3.Distance(transform.position, mousePosition) > maxConnectionDistance)
+            if (Vector3.Distance(transform.position, pointerPosition) > maxConnectionDistance)
             {
-                Vector3 direction = (mousePosition - transform.position).normalized;
-                mousePosition = transform.position + direction * maxConnectionDistance;
+                Vector3 direction = (pointerPosition - transform.position).normalized;
+                pointerPosition = transform.position + direction * maxConnectionDistance;
             }
 
-            Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition, LayerMask.GetMask("No Cut"));
+            Collider2D hitCollider = Physics2D.OverlapPoint(pointerPosition, LayerMask.GetMask("No Cut"));
 
             // Check if the line ends over another circle that is not the same as the starting circle, is not already connected and is not an enemy that has already been discovered
             if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<Circle>() != null && !hitCollider.GetComponent<Circle>().IsDiscovered())
@@ -230,9 +230,9 @@ public class Circle : MonoBehaviour
 
     bool PositionIsOverCircle()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        mousePosition.z = 0;
-        float distance = Vector3.Distance(mousePosition, transform.position);
+        Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
+        pointerPosition.z = 0;
+        float distance = Vector3.Distance(pointerPosition, transform.position);
         return distance <= GetComponent<CircleCollider2D>().radius;
     }
 

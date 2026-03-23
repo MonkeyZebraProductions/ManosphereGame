@@ -18,12 +18,12 @@ public class Cut : MonoBehaviour
         if (touchAction.IsPressed())
         {
             // Enable cut collider only if not over a "No Cut" element
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            mousePosition.z = 0;
+            Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
+            pointerPosition.z = 0;
 
-            if (Physics2D.OverlapPoint(mousePosition, LayerMask.GetMask("No Cut")) == null)
+            if (Physics2D.OverlapPoint(pointerPosition, LayerMask.GetMask("No Cut")) == null)
             {
-                transform.position = mousePosition;
+                transform.position = pointerPosition;
                 circleCollider.enabled = true;
                 trailRenderer.enabled = true;
             }
