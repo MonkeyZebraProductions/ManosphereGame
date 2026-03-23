@@ -1,0 +1,10 @@
+# ninja log v5
+35	1537	7959763133075442	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	e5cac25ea8db95ff
+45	1549	7959763133194253	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	9bc7e788f96c055f
+16	1584	7959763133543519	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	9a4eea95266ad75d
+64	1613	7959763133849709	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	92bd6d945ffeddbb
+9	1662	7959763134355474	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	7365483dcb1f6e0d
+54	1895	7959763136686944	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	99d90d513caed00d
+25	1900	7959763136697155	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	8b9a8f1ce1a17a89
+1	2030	7959763137986451	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	422c46abe572d989
+2030	2175	7959763139504486	C:/Users/morae/OneDrive/Desktop/ManosphereGame/Manosphere Game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2w1f724h/obj/arm64-v8a/libgame.so	a5a9749be2155c6

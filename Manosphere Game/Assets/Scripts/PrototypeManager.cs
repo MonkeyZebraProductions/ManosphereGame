@@ -20,7 +20,7 @@ public class PrototypeManager : MonoBehaviour
         // Press R to reset the game
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Restart();
         }
 
         // Press Q to quit the game
@@ -28,5 +28,15 @@ public class PrototypeManager : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

@@ -6,6 +6,8 @@ public class Line : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] int lineHealth = 6;
     [SerializeField] float animationSpeed = 6f;
+    [SerializeField] float thickness = 0.1f;
+    [SerializeField] float endPointMargin = 0.75f;
 
     GameObject circle0;
     GameObject circle1;
@@ -81,7 +83,7 @@ public class Line : MonoBehaviour
 
         // Set the size of the collider to match the length of the line minus a small amount to prevent it from extending inside the circles
         float lineLength = Vector3.Distance(startPos, endPos);
-        lineCollider.size = new Vector2(lineLength - 0.75f, 0.1f);
+        lineCollider.size = new Vector2(lineLength - endPointMargin, thickness);
 
         // Position the collider at the midpoint of the line
         Vector3 midPoint = (startPos + endPos) / 2;
