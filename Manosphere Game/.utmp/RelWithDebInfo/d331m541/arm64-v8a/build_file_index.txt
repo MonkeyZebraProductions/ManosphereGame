@@ -1,0 +1,2 @@
+C:\GitRepos\UnityGames\ManosphereGame\Manosphere Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\GitRepos\UnityGames\ManosphereGame\Manosphere Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
