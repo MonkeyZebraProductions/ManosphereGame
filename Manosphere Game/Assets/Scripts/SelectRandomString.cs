@@ -11,7 +11,7 @@ public class SelectRandomString : MonoBehaviour
     LocalizedStringTable LocalizedStringTable;
     string LocalisedString, lastString;
     int tableIndex;
-    CircleTypes circleType;
+    public CircleTypes circleType;
 
     private void Awake()
     {
@@ -34,9 +34,9 @@ public class SelectRandomString : MonoBehaviour
 
     void OnEnable()
     {
-         circleType = GetComponentInParent<CircleTypes>();
+         //circleType = GetComponentInParent<CircleTypes>();
          LocalizedStringTable = circleType.ChosenStuct.LocalizedStringTable;
-         tableIndex = Random.Range(0, LocalizedStringTable.GetTable().Count - 1);
+         tableIndex = Random.Range(0, LocalizedStringTable.GetTable().Count);
          LocalizedStringTable.TableChanged += LoadStrings;  
     }
 

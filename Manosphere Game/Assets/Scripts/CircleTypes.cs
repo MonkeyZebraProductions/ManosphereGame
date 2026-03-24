@@ -37,6 +37,7 @@ public class CircleTypes : MonoBehaviour
                 break;
         }
         Debug.Log(ChosenStuct.ToString());
+        GetComponentInChildren<SelectRandomString>().circleType = this;
         GetComponentInChildren<SelectRandomString>().enabled = true;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
