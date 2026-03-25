@@ -1,10 +1,21 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class PrototypeManager : MonoBehaviour
 {
     [SerializeField] bool isCircleTouch;
+    [SerializeField] bool isTouchscreenSimulation;
+
+    void Awake()
+    {
+        if (isTouchscreenSimulation)
+        {
+            EnhancedTouchSupport.Enable();
+            TouchSimulation.Enable();
+        }
+    }
 
     // Choose up to 3 random circles to be enemies at the start of the game
     void Start()

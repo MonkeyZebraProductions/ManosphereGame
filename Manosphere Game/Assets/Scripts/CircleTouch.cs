@@ -114,8 +114,8 @@ public class CircleTouch : MonoBehaviour
             if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<CircleTouch>() != null && !hitCollider.GetComponent<CircleTouch>().IsDiscovered())
             {
                 currentLineRenderer.SetPosition(1, hitCollider.transform.position);
-                currentLine.GetComponent<Line>().SetCircles(gameObject, hitCollider.gameObject);
-                currentLine.GetComponent<Line>().CreateLineCollider();
+                currentLine.GetComponent<LineTouch>().SetCircles(gameObject, hitCollider.gameObject);
+                currentLine.GetComponent<LineTouch>().CreateLineCollider();
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
@@ -130,7 +130,7 @@ public class CircleTouch : MonoBehaviour
                 {
                     enemyDiscovered = true;
                     GetComponent<SpriteRenderer>().color = Color.red;
-                    currentLine.GetComponent<Line>().InfectLine();
+                    currentLine.GetComponent<LineTouch>().InfectLine();
                     if (otherCircleScript != null)
                     {
                         if (otherCircleScript.NumberOfConnections() < 3 && !otherCircleScript.IsEnemy())
@@ -180,11 +180,11 @@ public class CircleTouch : MonoBehaviour
                     // Connect to a random potential circle
                     GameObject circleToConnect = potentialConnections[Random.Range(0, potentialConnections.Count)];
                     currentLine = Instantiate(linePrefab, linesParent.transform);
-                    currentLine.GetComponent<Line>().SetCircles(gameObject, circleToConnect);
-                    currentLine.GetComponent<Line>().AnimateLine(transform.position, circleToConnect.transform.position);
+                    currentLine.GetComponent<LineTouch>().SetCircles(gameObject, circleToConnect);
+                    currentLine.GetComponent<LineTouch>().AnimateLine(transform.position, circleToConnect.transform.position);
                     connectedCircles.Add(circleToConnect);
                     CircleTouch otherCircleScript = circleToConnect.GetComponent<CircleTouch>();
-                    currentLine.GetComponent<Line>().InfectLine();
+                    currentLine.GetComponent<LineTouch>().InfectLine();
                     if (otherCircleScript != null)
                     {
                         otherCircleScript.AddConnectedCircle(gameObject);
@@ -198,7 +198,7 @@ public class CircleTouch : MonoBehaviour
 
                     foreach (Transform line in linesParent.transform)
                     {
-                        Line lineScript = line.GetComponent<Line>();
+                        LineTouch lineScript = line.GetComponent<LineTouch>();
                         if (lineScript != null && lineScript.IsGood() && ((lineScript.GetCircle0() == gameObject && lineScript.GetCircle1() != null) || (lineScript.GetCircle1() == gameObject && lineScript.GetCircle0() != null)))
                         {
                             potentialGoodLinesToBreak.Add(line.gameObject);
@@ -208,7 +208,7 @@ public class CircleTouch : MonoBehaviour
                     if (potentialGoodLinesToBreak.Count > 0)
                         {
                             GameObject lineToBreak = potentialGoodLinesToBreak[Random.Range(0, potentialGoodLinesToBreak.Count)];
-                            Line lineScript = lineToBreak.GetComponent<Line>();
+                            LineTouch lineScript = lineToBreak.GetComponent<LineTouch>();
                             if (lineScript != null)
                             {
                                 lineScript.BreakGoodLine();
@@ -231,7 +231,7 @@ public class CircleTouch : MonoBehaviour
 
                 foreach (Transform line in linesParent.transform)
                 {
-                    Line lineScript = line.GetComponent<Line>();
+                    LineTouch lineScript = line.GetComponent<LineTouch>();
                     if (lineScript != null && lineScript.IsGood() && ((lineScript.GetCircle0() == gameObject && lineScript.GetCircle1() != null) || (lineScript.GetCircle1() == gameObject && lineScript.GetCircle0() != null)))
                     {
                         potentialGoodLinesToBreak.Add(line.gameObject);
@@ -241,7 +241,7 @@ public class CircleTouch : MonoBehaviour
                 if (potentialGoodLinesToBreak.Count > 0)
                 {
                     GameObject lineToBreak = potentialGoodLinesToBreak[Random.Range(0, potentialGoodLinesToBreak.Count)];
-                    Line lineScript = lineToBreak.GetComponent<Line>();
+                    LineTouch lineScript = lineToBreak.GetComponent<LineTouch>();
                     if (lineScript != null)
                     {
                         lineScript.BreakGoodLine();
@@ -351,7 +351,7 @@ public class CircleTouch : MonoBehaviour
                     // Finding the line that connects this circle to the infected circle and marking it as infected as well
                     foreach (Transform line in linesParent.transform)
                     {
-                        Line lineScript = line.GetComponent<Line>();
+                        LineTouch lineScript = line.GetComponent<LineTouch>();
                         if (lineScript != null && ((lineScript.GetCircle0() == gameObject && lineScript.GetCircle1() == circle) || (lineScript.GetCircle1() == gameObject && lineScript.GetCircle0() == circle)))
                         {
                             lineScript.InfectLine();
@@ -366,7 +366,7 @@ public class CircleTouch : MonoBehaviour
     // Backtracks the infection to the line that connected this circle to the one that infected it, so that it also turns red
     public void BacktrackLineInfection()
     {
-        currentLine.GetComponent<Line>().InfectLine();
+        currentLine.GetComponent<LineTouch>().InfectLine();
     }
 
     public bool IsEnemy()
