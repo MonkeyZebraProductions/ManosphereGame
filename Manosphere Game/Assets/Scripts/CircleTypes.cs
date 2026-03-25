@@ -13,7 +13,8 @@ public enum CircleEnum
     Sports,
     Film,
     Music,
-    Enemy
+    Enemy,
+    Infected
 }
 public class CircleTypes : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class CircleTypes : MonoBehaviour
     public CircleStruct FilmStruct;
     public CircleStruct MusicStruct;
     public CircleStruct EnemyStuct;
+    public CircleStruct InfectedStuct;
 
     [SerializeField] 
     private CircleEnum CircleEnum;

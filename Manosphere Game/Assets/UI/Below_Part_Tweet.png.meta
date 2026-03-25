@@ -1,0 +1,1326 @@
+fileFormatVersion: 2
+guid: a773c4eef53a85949923e54e702c795b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9210139217275932034
+    second: Below_Part_Tweet_0
+  - first:
+      213: 4738751185611974970
+    second: Below_Part_Tweet_1
+  - first:
+      213: -1566284393559396701
+    second: Below_Part_Tweet_2
+  - first:
+      213: 6525263398757933371
+    second: Below_Part_Tweet_3
+  - first:
+      213: 3511512208625902646
+    second: Below_Part_Tweet_4
+  - first:
+      213: 5751058622278631813
+    second: Below_Part_Tweet_5
+  - first:
+      213: 6608814551184165498
+    second: Below_Part_Tweet_6
+  - first:
+      213: 1374255614585312122
+    second: Below_Part_Tweet_7
+  - first:
+      213: 4218653165343766747
+    second: Below_Part_Tweet_8
+  - first:
+      213: 8915627408459047439
+    second: Below_Part_Tweet_9
+  - first:
+      213: 6206335704774844036
+    second: Below_Part_Tweet_10
+  - first:
+      213: 3382069222972607927
+    second: Below_Part_Tweet_11
+  - first:
+      213: 3493407912078597901
+    second: Below_Part_Tweet_12
+  - first:
+      213: -4455830412079753950
+    second: Below_Part_Tweet_13
+  - first:
+      213: 310505317382994809
+    second: Below_Part_Tweet_14
+  - first:
+      213: 8363649412394451068
+    second: Below_Part_Tweet_15
+  - first:
+      213: 7692322663146026256
+    second: Below_Part_Tweet_16
+  - first:
+      213: -3213889972983315920
+    second: Below_Part_Tweet_17
+  - first:
+      213: -1962024856265044157
+    second: Below_Part_Tweet_18
+  - first:
+      213: -3544275295173077744
+    second: Below_Part_Tweet_19
+  - first:
+      213: 3200759048093407045
+    second: Below_Part_Tweet_20
+  - first:
+      213: -5629138636326834683
+    second: Below_Part_Tweet_21
+  - first:
+      213: -5165990258380143290
+    second: Below_Part_Tweet_22
+  - first:
+      213: -3131524407222331268
+    second: Below_Part_Tweet_23
+  - first:
+      213: -7468055295602496141
+    second: Below_Part_Tweet_24
+  - first:
+      213: 4482418976994764336
+    second: Below_Part_Tweet_25
+  - first:
+      213: -6182652283585095328
+    second: Below_Part_Tweet_26
+  - first:
+      213: 1799912659215600529
+    second: Below_Part_Tweet_27
+  - first:
+      213: 1465888033962707674
+    second: Below_Part_Tweet_28
+  - first:
+      213: -3297742623010185654
+    second: Below_Part_Tweet_29
+  - first:
+      213: -5179103696616266366
+    second: Below_Part_Tweet_30
+  - first:
+      213: -4119875643209355196
+    second: Below_Part_Tweet_31
+  - first:
+      213: -1043383425936655070
+    second: Below_Part_Tweet_32
+  - first:
+      213: -1701487211958126438
+    second: Below_Part_Tweet_33
+  - first:
+      213: -2514179042236039390
+    second: Below_Part_Tweet_34
+  - first:
+      213: -1730252594268280498
+    second: Below_Part_Tweet_35
+  - first:
+      213: -7618247759996849126
+    second: Below_Part_Tweet_36
+  - first:
+      213: 1136276913558900508
+    second: Below_Part_Tweet_37
+  - first:
+      213: 4425130976403154554
+    second: Below_Part_Tweet_38
+  - first:
+      213: 5358109185079096416
+    second: Below_Part_Tweet_39
+  - first:
+      213: -7135738315450849746
+    second: Below_Part_Tweet_40
+  - first:
+      213: 5362872297346255086
+    second: Below_Part_Tweet_41
+  - first:
+      213: -2787326201903358847
+    second: Below_Part_Tweet_42
+  - first:
+      213: -5740165251327368290
+    second: Below_Part_Tweet_43
+  - first:
+      213: -864321162970627426
+    second: Below_Part_Tweet_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Below_Part_Tweet_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 140
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d40a912dcf0df70800000000000000
+      internalID: 9210139217275932034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 158
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a39ec59a81d63c140800000000000000
+      internalID: 4738751185611974970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_2
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 140
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae67a084a0734ae0800000000000000
+      internalID: -1566284393559396701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_3
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 140
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3123d42d746e8a50800000000000000
+      internalID: 6525263398757933371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_4
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 141
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634289bbfb56bb030800000000000000
+      internalID: 3511512208625902646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_5
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 141
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5818d57b85ddfcf40800000000000000
+      internalID: 5751058622278631813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_6
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 141
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7ac3cdb1d937bb50800000000000000
+      internalID: 6608814551184165498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_7
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 140
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7391f94336521310800000000000000
+      internalID: 1374255614585312122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_8
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 141
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd874e6d3baab8a30800000000000000
+      internalID: 4218653165343766747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_9
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 141
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0220f614ebaabb70800000000000000
+      internalID: 8915627408459047439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_10
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 141
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48e9defd075512650800000000000000
+      internalID: 6206335704774844036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_11
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 141
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd40111a068fee20800000000000000
+      internalID: 3382069222972607927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_12
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 140
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0fdbf6bcf31b7030800000000000000
+      internalID: 3493407912078597901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_13
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 141
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2259a9429d5b922c0800000000000000
+      internalID: -4455830412079753950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_14
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 140
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97bbb77e0f22f4400800000000000000
+      internalID: 310505317382994809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_15
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 150
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c700dabf3d6a11470800000000000000
+      internalID: 8363649412394451068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_16
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 141
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 015718ad4be90ca60800000000000000
+      internalID: 7692322663146026256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_17
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 135
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032c325f818f563d0800000000000000
+      internalID: -3213889972983315920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 86
+        width: 1390
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34fc5d9d9cc75c4e0800000000000000
+      internalID: -1962024856265044157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_19
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 13
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 015140db56430dec0800000000000000
+      internalID: -3544275295173077744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_20
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 13
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547993955616b6c20800000000000000
+      internalID: 3200759048093407045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_21
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 8
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50eef461c3841e1b0800000000000000
+      internalID: -5629138636326834683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_22
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 8
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6458f180b37be48b0800000000000000
+      internalID: -5165990258380143290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_23
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 8
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c781c06a4279a84d0800000000000000
+      internalID: -3131524407222331268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_24
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 10
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d63aea6432c5890800000000000000
+      internalID: -7468055295602496141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_25
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 8
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0362e3a8f40c43e30800000000000000
+      internalID: 4482418976994764336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_26
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 33
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0691723518ec23aa0800000000000000
+      internalID: -6182652283585095328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_27
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 7
+        width: 13
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b4647f6039af810800000000000000
+      internalID: 1799912659215600529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_28
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 7
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adac7d87661e75410800000000000000
+      internalID: 1465888033962707674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_29
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 7
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e10da7e801c32d0800000000000000
+      internalID: -3297742623010185654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_30
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 7
+        width: 13
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2856644c0a02028b0800000000000000
+      internalID: -5179103696616266366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_31
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 7
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 440f8b73ee243d6c0800000000000000
+      internalID: -4119875643209355196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_32
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 7
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22df38c5d482581f0800000000000000
+      internalID: -1043383425936655070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_33
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 7
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a98bd55456a1368e0800000000000000
+      internalID: -1701487211958126438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_34
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 8
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22ff9c55b77db1dd0800000000000000
+      internalID: -2514179042236039390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_35
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 7
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e49e0face68ecf7e0800000000000000
+      internalID: -1730252594268280498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_36
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 8
+        width: 7
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a14f876860c864690800000000000000
+      internalID: -7618247759996849126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_37
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 7
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1fc72725ddd4cf00800000000000000
+      internalID: 1136276913558900508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_38
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 7
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a76661d7d29396d30800000000000000
+      internalID: 4425130976403154554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_39
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 7
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 064b5645ae3db5a40800000000000000
+      internalID: 5358109185079096416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_40
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 8
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2668611fc3c8fc90800000000000000
+      internalID: -7135738315450849746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_41
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 8
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee84b13d0ffbc6a40800000000000000
+      internalID: 5362872297346255086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_42
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 7
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18c5966569d6159d0800000000000000
+      internalID: -2787326201903358847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_43
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 8
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93679add16d650b0800000000000000
+      internalID: -5740165251327368290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Below_Part_Tweet_44
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 7
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e92884d4b705104f0800000000000000
+      internalID: -864321162970627426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Below_Part_Tweet_0: 9210139217275932034
+      Below_Part_Tweet_1: 4738751185611974970
+      Below_Part_Tweet_10: 6206335704774844036
+      Below_Part_Tweet_11: 3382069222972607927
+      Below_Part_Tweet_12: 3493407912078597901
+      Below_Part_Tweet_13: -4455830412079753950
+      Below_Part_Tweet_14: 310505317382994809
+      Below_Part_Tweet_15: 8363649412394451068
+      Below_Part_Tweet_16: 7692322663146026256
+      Below_Part_Tweet_17: -3213889972983315920
+      Below_Part_Tweet_18: -1962024856265044157
+      Below_Part_Tweet_19: -3544275295173077744
+      Below_Part_Tweet_2: -1566284393559396701
+      Below_Part_Tweet_20: 3200759048093407045
+      Below_Part_Tweet_21: -5629138636326834683
+      Below_Part_Tweet_22: -5165990258380143290
+      Below_Part_Tweet_23: -3131524407222331268
+      Below_Part_Tweet_24: -7468055295602496141
+      Below_Part_Tweet_25: 4482418976994764336
+      Below_Part_Tweet_26: -6182652283585095328
+      Below_Part_Tweet_27: 1799912659215600529
+      Below_Part_Tweet_28: 1465888033962707674
+      Below_Part_Tweet_29: -3297742623010185654
+      Below_Part_Tweet_3: 6525263398757933371
+      Below_Part_Tweet_30: -5179103696616266366
+      Below_Part_Tweet_31: -4119875643209355196
+      Below_Part_Tweet_32: -1043383425936655070
+      Below_Part_Tweet_33: -1701487211958126438
+      Below_Part_Tweet_34: -2514179042236039390
+      Below_Part_Tweet_35: -1730252594268280498
+      Below_Part_Tweet_36: -7618247759996849126
+      Below_Part_Tweet_37: 1136276913558900508
+      Below_Part_Tweet_38: 4425130976403154554
+      Below_Part_Tweet_39: 5358109185079096416
+      Below_Part_Tweet_4: 3511512208625902646
+      Below_Part_Tweet_40: -7135738315450849746
+      Below_Part_Tweet_41: 5362872297346255086
+      Below_Part_Tweet_42: -2787326201903358847
+      Below_Part_Tweet_43: -5740165251327368290
+      Below_Part_Tweet_44: -864321162970627426
+      Below_Part_Tweet_5: 5751058622278631813
+      Below_Part_Tweet_6: 6608814551184165498
+      Below_Part_Tweet_7: 1374255614585312122
+      Below_Part_Tweet_8: 4218653165343766747
+      Below_Part_Tweet_9: 8915627408459047439
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
