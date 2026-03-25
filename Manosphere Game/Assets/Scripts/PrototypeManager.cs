@@ -4,16 +4,30 @@ using UnityEngine.SceneManagement;
 
 public class PrototypeManager : MonoBehaviour
 {
+    [SerializeField] bool isCircleTouch;
+
     // Choose up to 3 random circles to be enemies at the start of the game
     void Start()
     {
         Application.targetFrameRate = 30;
 
-        Circle[] allCircles = FindObjectsByType<Circle>(FindObjectsSortMode.None);
-        for (int i = 0; i < 3; i++)
+        if (isCircleTouch)
         {
-            Circle randomCircle = allCircles[Random.Range(0, allCircles.Length)];
-            randomCircle.SetEnemy(true);
+            CircleTouch[] allCirclesTouch = FindObjectsByType<CircleTouch>(FindObjectsSortMode.None);
+            for (int i = 0; i < 3; i++)
+            {
+                CircleTouch randomCircleTouch = allCirclesTouch[Random.Range(0, allCirclesTouch.Length)];
+                randomCircleTouch.SetEnemy(true);
+            }
+        }
+        else
+        {
+            Circle[] allCircles = FindObjectsByType<Circle>(FindObjectsSortMode.None);
+            for (int i = 0; i < 3; i++)
+            {
+                Circle randomCircle = allCircles[Random.Range(0, allCircles.Length)];
+                randomCircle.SetEnemy(true);
+            }
         }
     }
 

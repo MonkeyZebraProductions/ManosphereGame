@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.InputSystem.Controls;
 
-public class Circle : MonoBehaviour
+public class CircleTouch : MonoBehaviour
 {
     [SerializeField] GameObject linePrefab;
     [SerializeField] float maxConnectionDistance = 3f;
@@ -14,10 +15,12 @@ public class Circle : MonoBehaviour
     LineRenderer currentLineRenderer;
     bool isDragging;
     InputAction touchAction;
+    TouchControl currentTouch;
     List<GameObject> connectedCircles = new List<GameObject>();
     bool isInfected;
     float timeToInfect;
     float nextInfectionTime;
+    bool hasTouch;
 
     // Prevents players from connecting lines to enemies once they have been discovered
     bool enemyDiscovered;
@@ -26,6 +29,7 @@ public class Circle : MonoBehaviour
     {
         isDragging = false;
         isInfected = false;
+        hasTouch = false;
         linesParent = GameObject.Find("Connections");
         touchAction = InputSystem.actions.FindAction("Touch");
         timeToInfect = 0f;
@@ -34,21 +38,43 @@ public class Circle : MonoBehaviour
 
     void Update()
     {
+        // Check which touch is currently interacting with the circle
+        if (touchAction.IsPressed() && !hasTouch)
+        {
+            for (int i = 0; i < Touchscreen.current.touches.Count; i++)
+            {
+                TouchControl touch = Touchscreen.current.touches[i];
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position.ReadValue());
+                touchPosition.z = 0;
+
+                if (Vector3.Distance(touchPosition, transform.position) <= GetComponent<CircleCollider2D>().radius + 0.3f)
+                {
+                    currentTouch = touch;
+                    hasTouch = true;
+                    break;
+                }
+            }
+        }
+        else if (hasTouch && !touchAction.IsPressed())
+        {
+            hasTouch = false;
+        }
+
         // Prevents players from connecting lines from enemies once they have been discovered or if the circle is already infected
-        if (touchAction.IsPressed() && !enemyDiscovered && !isInfected)
+        if (hasTouch && !enemyDiscovered && !isInfected && currentTouch.isInProgress)
         {
             if (!isDragging)
             {
-                // Start line drawing if the touch is over the circle and was just pressed
-                if (PositionIsOverCircle() && touchAction.WasPressedThisFrame())
+                // Start line drawing if the touch just began and the touch is close enough to the circle
+                if (currentTouch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began && PositionIsOverCircle())
                 {
                     currentLine = Instantiate(linePrefab, linesParent.transform);
                     currentLineRenderer = currentLine.GetComponent<LineRenderer>();
                     currentLineRenderer.SetPosition(0, transform.position);
                     
-                    Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
-                    pointerPosition.z = 0;
-                    currentLineRenderer.SetPosition(1, pointerPosition);
+                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
+                    touchPosition.z = 0;
+                    currentLineRenderer.SetPosition(1, touchPosition);
                     
                     isDragging = true;
                 }
@@ -56,35 +82,36 @@ public class Circle : MonoBehaviour
             else
             {
                 // Continue drawing the line to follow the touch position
-                Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
-                pointerPosition.z = 0;
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
+                touchPosition.z = 0;
 
-                if (Vector3.Distance(transform.position, pointerPosition) > maxConnectionDistance)
+                if (Vector3.Distance(transform.position, touchPosition) > maxConnectionDistance)
                 {
-                    Vector3 direction = (pointerPosition - transform.position).normalized;
-                    pointerPosition = transform.position + direction * maxConnectionDistance;
+                    Vector3 direction = (touchPosition - transform.position).normalized;
+                    touchPosition = transform.position + direction * maxConnectionDistance;
                 }
 
-                currentLineRenderer.SetPosition(1, pointerPosition);
+                currentLineRenderer.SetPosition(1, touchPosition);
             }
         }
         else if (isDragging)
         {
             isDragging = false;
+            hasTouch = false;
 
-            Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
-            pointerPosition.z = 0;
+            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
+            touchPosition.z = 0;
 
-            if (Vector3.Distance(transform.position, pointerPosition) > maxConnectionDistance)
+            if (Vector3.Distance(transform.position, touchPosition) > maxConnectionDistance)
             {
-                Vector3 direction = (pointerPosition - transform.position).normalized;
-                pointerPosition = transform.position + direction * maxConnectionDistance;
+                Vector3 direction = (touchPosition - transform.position).normalized;
+                touchPosition = transform.position + direction * maxConnectionDistance;
             }
 
-            Collider2D hitCollider = Physics2D.OverlapCircle(pointerPosition, 0.3f, LayerMask.GetMask("No Cut"));
+            Collider2D hitCollider = Physics2D.OverlapCircle(touchPosition, 0.3f, LayerMask.GetMask("No Cut"));
 
             // Check if the line ends over another circle that is not the same as the starting circle, is not already connected and is not an enemy that has already been discovered
-            if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<Circle>() != null && !hitCollider.GetComponent<Circle>().IsDiscovered())
+            if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<CircleTouch>() != null && !hitCollider.GetComponent<CircleTouch>().IsDiscovered())
             {
                 currentLineRenderer.SetPosition(1, hitCollider.transform.position);
                 currentLine.GetComponent<Line>().SetCircles(gameObject, hitCollider.gameObject);
@@ -92,7 +119,7 @@ public class Circle : MonoBehaviour
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
-                Circle otherCircleScript = hitCollider.GetComponent<Circle>();
+                CircleTouch otherCircleScript = hitCollider.GetComponent<CircleTouch>();
                 if (otherCircleScript != null)
                 {
                     otherCircleScript.AddConnectedCircle(gameObject);
@@ -139,7 +166,7 @@ public class Circle : MonoBehaviour
 
                 foreach (Collider2D col in collidedCircles)
                 {
-                    Circle colCircleScript = col.GetComponent<Circle>();
+                    CircleTouch colCircleScript = col.GetComponent<CircleTouch>();
 
                     // Check if it is a circle that is not already connected, is not an enemy and has less than 2 connections or is infected
                     if (!connectedCircles.Contains(col.gameObject) && col.gameObject != gameObject && col.CompareTag("Circle") && colCircleScript != null && !colCircleScript.IsEnemy() && (colCircleScript.NumberOfConnections() < 2 || colCircleScript.IsInfected()))
@@ -156,7 +183,7 @@ public class Circle : MonoBehaviour
                     currentLine.GetComponent<Line>().SetCircles(gameObject, circleToConnect);
                     currentLine.GetComponent<Line>().AnimateLine(transform.position, circleToConnect.transform.position);
                     connectedCircles.Add(circleToConnect);
-                    Circle otherCircleScript = circleToConnect.GetComponent<Circle>();
+                    CircleTouch otherCircleScript = circleToConnect.GetComponent<CircleTouch>();
                     currentLine.GetComponent<Line>().InfectLine();
                     if (otherCircleScript != null)
                     {
@@ -230,10 +257,10 @@ public class Circle : MonoBehaviour
 
     bool PositionIsOverCircle()
     {
-        Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
-        pointerPosition.z = 0;
-        float distance = Vector3.Distance(pointerPosition, transform.position);
-        return distance <= GetComponent<CircleCollider2D>().radius + 0.3f; // Adding a small margin to make it easier to connect lines to the circle
+        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
+        touchPosition.z = 0;
+        float distance = Vector3.Distance(touchPosition, transform.position);
+        return distance <= GetComponent<CircleCollider2D>().radius + 0.3f;
     }
 
     public void AddConnectedCircle(GameObject circle)
@@ -243,7 +270,7 @@ public class Circle : MonoBehaviour
             connectedCircles.Add(circle);
             
             // If this circle is an enemy, mark the connected circle as infected if it has less than 3 connections and is not an enemy
-            Circle circleScript = circle.GetComponent<Circle>();
+            CircleTouch circleScript = circle.GetComponent<CircleTouch>();
             if (circleScript != null && isEnemy)
             {
                 enemyDiscovered = true;
@@ -275,7 +302,7 @@ public class Circle : MonoBehaviour
     {
         foreach (GameObject circle in connectedCircles)
         {
-            Circle circleScript = circle.GetComponent<Circle>();
+            CircleTouch circleScript = circle.GetComponent<CircleTouch>();
             if(circleScript != null && circleScript.IsEnemy())
             {
                 return true;
@@ -288,7 +315,7 @@ public class Circle : MonoBehaviour
     {
         foreach (GameObject circle in connectedCircles)
         {
-            Circle circleScript = circle.GetComponent<Circle>();
+            CircleTouch circleScript = circle.GetComponent<CircleTouch>();
             if(circleScript != null && (circleScript.IsInfected() || circleScript.IsEnemy()))
             {
                 return true;
@@ -316,7 +343,7 @@ public class Circle : MonoBehaviour
         {
             foreach (GameObject circle in connectedCircles)
             {
-                Circle circleScript = circle.GetComponent<Circle>();
+                CircleTouch circleScript = circle.GetComponent<CircleTouch>();
                 if (circleScript != null && !circleScript.IsEnemy() && circleScript.NumberOfConnections() < 3)
                 {
                     circleScript.Infect(true);
