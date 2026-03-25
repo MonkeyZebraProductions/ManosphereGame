@@ -1,17 +1,44 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class PrototypeManager : MonoBehaviour
 {
+    [SerializeField] bool isCircleTouch;
+    [SerializeField] bool isTouchscreenSimulation;
+
+    void Awake()
+    {
+        if (isTouchscreenSimulation)
+        {
+            EnhancedTouchSupport.Enable();
+            TouchSimulation.Enable();
+        }
+    }
+
     // Choose up to 3 random circles to be enemies at the start of the game
     void Start()
     {
-        Circle[] allCircles = FindObjectsByType<Circle>(FindObjectsSortMode.None);
-        for (int i = 0; i < 3; i++)
+        Application.targetFrameRate = 30;
+
+        if (isCircleTouch)
         {
-            Circle randomCircle = allCircles[Random.Range(0, allCircles.Length)];
-            randomCircle.SetEnemy(true);
+            CircleTouch[] allCirclesTouch = FindObjectsByType<CircleTouch>(FindObjectsSortMode.None);
+            for (int i = 0; i < 3; i++)
+            {
+                CircleTouch randomCircleTouch = allCirclesTouch[Random.Range(0, allCirclesTouch.Length)];
+                randomCircleTouch.SetEnemy(true);
+            }
+        }
+        else
+        {
+            Circle[] allCircles = FindObjectsByType<Circle>(FindObjectsSortMode.None);
+            for (int i = 0; i < 3; i++)
+            {
+                Circle randomCircle = allCircles[Random.Range(0, allCircles.Length)];
+                randomCircle.SetEnemy(true);
+            }
         }
     }
 
@@ -20,7 +47,7 @@ public class PrototypeManager : MonoBehaviour
         // Press R to reset the game
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Restart();
         }
 
         // Press Q to quit the game
@@ -28,5 +55,15 @@ public class PrototypeManager : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

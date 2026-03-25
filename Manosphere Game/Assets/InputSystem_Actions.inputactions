@@ -19,8 +19,19 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "fa98f439-3bea-4731-94de-036adbc0e76c",
+                    "id": "5b953c63-7401-42e2-bf5f-176b1d5b5b61",
                     "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba4666ea-7ffd-41b8-858f-a65e036f39aa",
+                    "path": "<Touchscreen>/touch*/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
