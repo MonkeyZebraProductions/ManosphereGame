@@ -5,7 +5,7 @@ using UnityEngine.Localization;
 public struct CircleStruct
 {
     public LocalizedStringTable LocalizedStringTable;
-    public Sprite CircleSprite;
+    //public Sprite CircleSprite;
 }
 public enum CircleEnum
 {
@@ -14,7 +14,7 @@ public enum CircleEnum
     Film,
     Music,
     Enemy,
-    Infected
+    Closeted
 }
 public class CircleTypes : MonoBehaviour
 {
@@ -23,24 +23,27 @@ public class CircleTypes : MonoBehaviour
     public CircleStruct FilmStruct;
     public CircleStruct MusicStruct;
     public CircleStruct EnemyStuct;
-    public CircleStruct InfectedStuct;
+    public CircleStruct ClosetedStuct;
 
     [SerializeField] 
     private CircleEnum CircleEnum;
 
     public CircleStruct ChosenStuct;
+    private CircleStruct originalStruct;
+
+    private SelectRandomString randomString;
 
     private void Awake()
     {
         switch (CircleEnum)
         {
             case CircleEnum.Gamer:
-                ChosenStuct = GamerStruct;
+                ChosenStuct = originalStruct = GamerStruct;
                 break;
         }
-        Debug.Log(ChosenStuct.ToString());
-        GetComponentInChildren<SelectRandomString>().circleType = this;
-        GetComponentInChildren<SelectRandomString>().enabled = true;
+        randomString = GetComponentInChildren<SelectRandomString>();
+        randomString.circleType = this;
+        randomString.enabled = true;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,5 +55,20 @@ public class CircleTypes : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ConvertToEnemy()
+    {
+        randomString.enabled = false;
+        ChosenStuct = EnemyStuct;
+        randomString.enabled=true;
+
+    }
+
+    public void ConvertToNormal()
+    {
+        randomString.enabled = false;
+        ChosenStuct = originalStruct;
+        randomString.enabled = true;
     }
 }

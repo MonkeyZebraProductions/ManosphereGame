@@ -15,8 +15,38 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: 183de1d0ab9d10547880d9af0ee4555e
   m_SerializeEntries:
+  - m_GUID: 2efebdedf5cca41448cda61a1972ddbf
+    m_Address: Assets/Localisation/Film Tweets/Film Tweets Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d7154a0f84142d4ca5462dc2022be57
+    m_Address: Assets/Localisation/Music Tweets/Music Tweets Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49adfb9768b95234e99c3e55dbd36771
     m_Address: Assets/Localisation/Gamer Tweets Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a904cb095e125047a97d926e3269cc8
+    m_Address: Assets/Localisation/OpenIncel Tweets/Open Incel Tweets Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 904f9f416baa0834890c87a6e89b141e
+    m_Address: Assets/Localisation/HiddenIncelTweets/HiddenIncelTweets Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a080480eb7a73974c89193abbedfac2d
+    m_Address: Assets/Localisation/Sports Tweets/Sports Tweets Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b79aa359aa9b26a4bb8af63d4df17a40
+    m_Address: Assets/Localisation/Other Translations Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
