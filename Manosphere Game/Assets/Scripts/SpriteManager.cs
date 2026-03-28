@@ -80,4 +80,11 @@ public class SpriteManager : MonoBehaviour
                 break;
         }
     }
+
+    public void MoveSpriteLayer(bool moveToFront)
+    {
+        EmotionRenderer.sortingLayerName = moveToFront ? "Popup" : "Default";
+        BaseRenderer.sortingLayerName = moveToFront ? "Popup" : "Default";
+        AccessoryRenderer.sortingLayerName = moveToFront ? "Popup" : "Default";
+    }
 }

@@ -19,6 +19,9 @@ public class Circle : MonoBehaviour
     float timeToInfect;
     float nextInfectionTime;
 
+    private SpriteManager spriteManager;
+    private CircleTypes circleType;
+
     // Prevents players from connecting lines to enemies once they have been discovered
     bool enemyDiscovered;
 
@@ -30,6 +33,9 @@ public class Circle : MonoBehaviour
         touchAction = InputSystem.actions.FindAction("Touch");
         timeToInfect = 0f;
         nextInfectionTime = Random.Range(infectionTime, infectionTime*1.5f);
+        circleType = GetComponent<CircleTypes>();
+        spriteManager = GetComponentInChildren<SpriteManager>();
+        isEnemy = (circleType.StartingCircleEnum == CircleEnum.Closeted);
     }
 
     void Update()
@@ -92,17 +98,25 @@ public class Circle : MonoBehaviour
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
+                if(!isEnemy)
+                {
+                    spriteManager.ChangeEmotion(Emotion.Connected);
+                }
                 Circle otherCircleScript = hitCollider.GetComponent<Circle>();
                 if (otherCircleScript != null)
                 {
                     otherCircleScript.AddConnectedCircle(gameObject);
+                    if(!otherCircleScript.IsEnemy())
+                    {
+                        otherCircleScript.spriteManager.ChangeEmotion(Emotion.Connected);
+                    }
                 }
 
                 // If the circle is an enemy, mark it as discovered and infect the other circle
                 if (isEnemy)
                 {
                     enemyDiscovered = true;
-                    GetComponent<SpriteRenderer>().color = Color.red;
+                    spriteManager.ChangeBase(Base.Enemy);
                     currentLine.GetComponent<Line>().InfectLine();
                     if (otherCircleScript != null)
                     {
@@ -228,7 +242,7 @@ public class Circle : MonoBehaviour
         }
     }
 
-    bool PositionIsOverCircle()
+    public bool PositionIsOverCircle()
     {
         Vector3 pointerPosition = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
         pointerPosition.z = 0;
@@ -248,7 +262,7 @@ public class Circle : MonoBehaviour
             {
                 enemyDiscovered = true;
                 circleScript.BacktrackLineInfection();
-                GetComponent<SpriteRenderer>().color = Color.red;
+                spriteManager.ChangeBase(Base.Enemy);
                 if (circleScript.NumberOfConnections() < 3 && !circleScript.IsEnemy())
                 {
                     circleScript.Infect(true);
@@ -268,6 +282,12 @@ public class Circle : MonoBehaviour
         if (connectedCircles.Count > 0 && IsInfected() && !IsConnectedToInfectedOrEnemy())
         {
             Infect(false);
+        }
+
+        //Changes Expression to Alone if not an enemy and has 0 Connections;
+        if (connectedCircles.Count == 0 && !isEnemy)
+        {
+            spriteManager.ChangeEmotion(Emotion.Alone);
         }
     }
 
@@ -304,11 +324,13 @@ public class Circle : MonoBehaviour
 
         if (!isEnemy && infected)
         {
-            GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f); // Light red for infected circles that are not enemies
+            spriteManager.ChangeBase(Base.Infected); // Light red for infected circles that are not enemies
+            circleType.ConvertToEnemy();
         }
         else if (!isEnemy && !infected)
         {
-            GetComponent<SpriteRenderer>().color = Color.white; // Back to normal color if the infection is removed
+            spriteManager.ChangeBase(Base.Normal); // Back to normal color if the infection is removed
+            circleType.ConvertToNormal();
         }
 
         // If the circle becomes infected and was not already infected, it should also infect all connected circles that are not enemies and have less than 3 connections

@@ -14,7 +14,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: HiddenIncelTweets
   m_TableCollectionNameGuidString: 904f9f416baa0834890c87a6e89b141e
-  m_Entries: []
+  m_Entries:
+  - m_Id: 1
+    m_Key: 0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Key: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Key: 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Key: 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Key: 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Key: 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Key: 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Key: 7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Key: 8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Key: 9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Key: 10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Key: 11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Key: 12
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Key: 13
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Key: 14
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Key: 15
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Key: 16
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Key: 17
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Key: 18
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

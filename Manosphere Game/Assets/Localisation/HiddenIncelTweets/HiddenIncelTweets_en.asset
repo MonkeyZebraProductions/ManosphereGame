@@ -17,7 +17,98 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 904f9f416baa0834890c87a6e89b141e, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: 'Why do the most beautiful fish always go for the biggest sharks?
+      it is literally biology
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: No one cares about the pain of young male sharks anymore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: 'Because I tell young sharks to question everything, work hard and
+      get as rich as possible I get banned '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: Gentleshark, understand this. You are not hardwired in your egg
+      to be certain type. Just make the right choices
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: RedShark Redemption 2 is a bit woke, innit?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: 'No shark is perfect, we all fall short ... (Finicus 3:23) but its
+      important to know & see your bad habits. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: If it wasnt for males, Taylor Swims had nothing to sing about
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Overswim should do something about those e-daters, its disgusting,
+      keep the females of our game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Meryl Reef kinda let herself go in Bitcraft movie trailer, huh?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Its so hard being a shark nowadays when all these females keep attacking
+      you for no reason
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Females that are into Straypups are such a red flag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: 'Lil Nas Shark really calls himself a rapper and then kisses other
+      males '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Why do smaller fish and female sharks always swim in groups when
+      I show up???
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: Gentlesharks, always remember that if you can smell blood in the
+      water to go for the kill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: A true gentleshark never gives up! #truealpha #gentleshark
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: Sharkbowl truly is the only event where there are still real sharks
+      playing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: Sabrina Sharkenter is really out there telling all male sharks they
+      are useless, huh?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: Female sharks really expect a great white but bring nothing to the
+      ocean themselves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: The ocean does not reward kindness it rewards strength #AlwaysHas
+      #AlwaysWill
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -17,7 +17,105 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 8a904cb095e125047a97d926e3269cc8, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: Haaien die het eens zijn met deze rif agenda onzin zijn zwakke en
+      dikke haaien!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: Vrouwelijke haaien zijn niet in staat tot echte loyaliteit, het
+      zit simpelweg niet in hun aard en dat zal nooit veranderen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: Gentleshark, vergeet niet. Er zijn geweldige vrouwelijke haaien
+      daar buiten... het is gewoon het geval dat alleen de gehersenspoelde exemplaren
+      alle aandacht krijgen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: Sommige haaien zeggen dat vrouwen nuttig zijn omdat ze eieren leggen
+      maar ZE HEBBEN ONS NOG STEEDS DAARVOOR NODIG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Vrouwelijke vissen zijn niet in staat tot logisch nadenken, ze worden
+      puur gedreven door instinct en volgen altijd degene met het grootste territorium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: Elke haai die nog steeds aardig probeert te zijn in deze oceaan
+      verdient precies wat hij krijgt, en dat is niets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: vrouwen denken dat ze alles verdienen omdat ze vrouwen zijn maar
+      spelen het slachtoffer wanneer het ze uitkomt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Als een vrouw jou nooit heeft gekozen is het omdat je jezelf niet
+      dominant genoeg hebt gemaakt, zo simpel is dat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: We moeten terug naar de tijden dat vrouwen van ons waren, wij brengen
+      tenslotte de vis op tafel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Denken dikke vrouwen echt dat manneten hen paring verschuldigd zijn?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Vrouwtjes willen mannetjes tegenwoordig aan de punt van een vin
+      doden! Waarom roepen we hen daar niet op aan voor hun kwaadaardig gedrag?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: '''De oceaan heeft vrouwelijke vissen letterlijk zo gemaakt dat
+      ze mannelijke haaien vernietigen en niemand praat hierover'''''
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Elke haai die nog gelooft in liefde is gehersenspoeld door de koraalrif
+      agenda en ik heb medelijden met hen #fallensoldiers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: Elke haai die vrouwen verdedigt in de reacties is al gevangen door
+      de rif agenda, doe je onderzoek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: Als je niet boos bent over wat het rif doet met mannelijke haaien
+      let je gewoon niet op
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: "Het rif heeft letterlijk chemicali\xEBn in het water gestopt om
+      mannelijke haaien dociel en onderdanig te maken, word wakker en stop met het
+      zeewater te drinken!!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: "WORD WAKKER: Het rif heeft vrouwelijke haaien sinds hun geboorte
+      opzettelijk geprogrammeerd om haaien zoals ons te vermijden, dit is geen toeval,
+      dit is een geco\xF6rdineerde aanval"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: Vrouwelijke haaien zijn letterlijk een andere soort die doen alsof
+      ze gelijk zijn, de wetenschap is er als je bereid bent te kijken...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: De enige waarde van een vrouwelijke haai voor het rif is wat ze
+      kan bieden aan een dominante haai, alles wat ze verder denkt te brengen is
+      een illusie!!!!!!!!!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

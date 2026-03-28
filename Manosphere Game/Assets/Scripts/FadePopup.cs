@@ -10,6 +10,9 @@ public class FadePopup : MonoBehaviour
     bool _isfadedIn,_isfadedOut,_startFade,_fadeIn;
     CanvasGroup canvasGroup;
     private InputAction touchAction;
+    private Circle circle;
+    private CircleTouch circleTouch;
+    private SpriteManager spriteManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +20,9 @@ public class FadePopup : MonoBehaviour
         _isfadedOut = true;
         canvasGroup = GetComponentInChildren<CanvasGroup>();
         touchAction = InputSystem.actions.FindAction("Touch");
+        circle = GetComponent<Circle>();
+        circleTouch = GetComponent<CircleTouch>();
+        spriteManager = GetComponentInChildren<SpriteManager>();
     }
 
     // Update is called once per frame
@@ -24,7 +30,7 @@ public class FadePopup : MonoBehaviour
     {
         if(touchAction != null && touchAction.WasPressedThisFrame())
         {
-            if (PositionIsOverCircle())
+            if ((circle!=null && circle.PositionIsOverCircle()) || (circleTouch != null && circleTouch.PositionIsOverCircle()))
             {
                 if (_isfadedOut)
                 {
@@ -32,6 +38,7 @@ public class FadePopup : MonoBehaviour
                     if (!_startFade)
                     {
                         _startFade = true;
+                        
                     }
                 }
                 else
@@ -54,6 +61,7 @@ public class FadePopup : MonoBehaviour
                     }
                 }
             }
+            spriteManager.MoveSpriteLayer(_fadeIn);
         }
         if(_startFade)
         {
@@ -66,6 +74,7 @@ public class FadePopup : MonoBehaviour
                 FadeOutCircle();
             }
         }
+        
     }
 
     void FadeInCircle()
@@ -96,12 +105,5 @@ public class FadePopup : MonoBehaviour
         }
     }
 
-    bool PositionIsOverCircle()
-    {
-        //change content once Henrique has figured out touching
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        mousePosition.z = 0;
-        float distance = Vector3.Distance(mousePosition, transform.position);
-        return distance <= GetComponent<CircleCollider2D>().radius;
-    }
+   
 }

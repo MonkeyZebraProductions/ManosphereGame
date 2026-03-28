@@ -26,7 +26,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49adfb9768b95234e99c3e55dbd36771
-    m_Address: Assets/Localisation/Gamer Tweets Shared Data.asset
+    m_Address: Assets/Localisation/GamerTweets/Gamer Tweets Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

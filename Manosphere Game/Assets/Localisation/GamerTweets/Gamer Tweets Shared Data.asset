@@ -94,11 +94,11 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 517895797106016464
+    rid: 517895913643704574
   references:
     version: 2
     RefIds:
-    - rid: 517895797106016464
+    - rid: 517895913643704574
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1774270765284
+        m_CustomEpoch: 1774719974829

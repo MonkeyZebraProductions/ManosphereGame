@@ -23,10 +23,10 @@ public class CircleTypes : MonoBehaviour
     public CircleStruct FilmStruct;
     public CircleStruct MusicStruct;
     public CircleStruct EnemyStuct;
-    public CircleStruct ClosetedStuct;
+    public CircleStruct ClosetedStruct;
 
     [SerializeField] 
-    private CircleEnum CircleEnum;
+    public CircleEnum StartingCircleEnum;
 
     public CircleStruct ChosenStuct;
     private CircleStruct originalStruct;
@@ -35,10 +35,26 @@ public class CircleTypes : MonoBehaviour
 
     private void Awake()
     {
-        switch (CircleEnum)
+
+        CircleEnum[] circleEnums = { CircleEnum.Closeted, CircleEnum.Gamer, CircleEnum.Film, CircleEnum.Music, CircleEnum.Sports };
+
+        StartingCircleEnum = circleEnums[Random.Range(0, circleEnums.Length)];
+        switch (StartingCircleEnum)
         {
             case CircleEnum.Gamer:
                 ChosenStuct = originalStruct = GamerStruct;
+                break;
+            case CircleEnum.Sports:
+                ChosenStuct = originalStruct = SportsStruct;
+                break;
+            case CircleEnum.Film:
+                ChosenStuct = originalStruct = FilmStruct;
+                break;
+            case CircleEnum.Closeted:
+                ChosenStuct = originalStruct = ClosetedStruct;
+                break;
+            case CircleEnum.Music:
+                ChosenStuct = originalStruct = MusicStruct;
                 break;
         }
         randomString = GetComponentInChildren<SelectRandomString>();
