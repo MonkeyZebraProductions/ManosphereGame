@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Film Tweets_nl-BE
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: nl-BE
+  m_SharedData: {fileID: 11400000, guid: 2efebdedf5cca41448cda61a1972ddbf, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: wat als ik zeg dat The Reef de beste film ooit gemaakt is! fight
+      me!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: de enige soort pups die ik tolereer zijn geanimeerde pups #ngl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: die "Human" documentaire maakte me zo ongemakkelijk...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: ik zou willen dat ik Rosemary's Pup opnieuw voor de eerste keer
+      kon kijken
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Ben ik het of worden supershark films slechter en slechter?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: Jawfather is nog steeds een absolute klassieker en als je het daar
+      niet mee eens bent mag je oprotten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: we zijn het er toch allemaal over eens dat Finding Nemo gewoon vispropaganda
+      was?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Ben ik het of ziet Jawner Ortega er nog mooier uit in haar nieuwe
+      film?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: The Shark Knight vs Sharkman, welke adaptatie is beter?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: IK KAN NIET GELOVEN DAT ZE EEN FILM GAAN MAKEN VAN BITECRAFT!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: One Teeth is letterlijk het meest invloedrijke stuk media dat we
+      hebben!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: ik moet het eerlijk zeggen dat ik van Humanado houd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Johnny Depth is nog steeds zoooo knap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: ik kan niet geloven dat Will Swim nog steeds denkt dat hij kan acteren?
+      bro stop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: Sharbie heeft er echt voor gezorgd dat ik overal vragen bij stel!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: Fins en Furious is echt het plot kwijtgeraakt rond film 6 en heeft
+      op een of andere manier toch nog tien films gemaakt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: Five Bites at Findy's dacht echt ''laat me een hele generatie haaien
+      trauma geven over animatronics, missie geslaagd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: het einde van Stranger Fins was zo slecht
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: The Last of Fin heeft echt elke haai laten lelijkhuillen en had
+      dan de brutaliteit om een tweede seizoen te maken dat ook nog eens kut was
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

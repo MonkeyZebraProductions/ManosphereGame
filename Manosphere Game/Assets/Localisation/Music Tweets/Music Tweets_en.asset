@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Music Tweets_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 3d7154a0f84142d4ca5462dc2022be57, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: "Straypups\xB4s new album is sooooo meh...."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: "Why are Taylor Swim\xB4s tickets sooo crazy expensive, I am gonna
+      be broke!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: Who even is Bite Direction?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: Unpopular opinion but Fin Sheeran has not made a single bad album,
+      fight me
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Cardi Sea really said I am going to be the loudest creature in the
+      water and never apologized for it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: The ocean at 3am hits different, trust me on this
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: Forgot my headphones how am I gonna survive the day??!!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Sharks that talk during concerts deserve to be left out in the open
+      water!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Bad Guppy really said let me switch languages mid song and still
+      outsell everyone in the ocean
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Sabrina Sharkenter the shark you are
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Tate McReef moves more like my will to swim in her last music video
+      fr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: "Cant lie but Bad Guppy\xB4s performance at the Sharkbowel was kinda
+      lit. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Swimming to concerts really has become soooo expensive! At this
+      point I rather spend it on jawbux!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: 'Addison Reef is so hot, I wish I had her fins! '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: "caught myself looping this like i\u2019m stuck in a reef #newsong"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: "nah this chorus hit deep\u2026 like DEEP ocean deep"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: this song got me in my Sharkira era fr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: nah bro The Reefend was so corny in his show, I cant listen to his
+      songs anymore
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

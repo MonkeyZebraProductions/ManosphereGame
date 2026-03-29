@@ -48,7 +48,7 @@ public class SelectRandomString : MonoBehaviour
     void LoadStrings(StringTable stringTable)
     {
         LocalisedString = GetLocalizedString(stringTable, tableIndex.ToString());
-        Debug.Log(LocalisedString);
+        //Debug.Log(LocalisedString);
     }
 
     static string GetLocalizedString(StringTable table, string entryName)

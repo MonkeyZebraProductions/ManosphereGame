@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Sports Tweets_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: a080480eb7a73974c89193abbedfac2d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: 'Fishball fans love the game because its none stop action! '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: IShowShark predicted this result last week and nobody listened,
+      as usual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: Overtime in any sport is genuinely the most stressful experience
+      you can have in the open water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: Sharkbappe really moves like he was built in a lab, absolutely unreal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Cristiano Reefaldo really woke up and decided to be the craziest
+      shark in the ocean every single day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: Nobody is having a better season right now than Lionel Jawsi and
+      I will not be hearing otherwise
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: Cold take but the Shark Bowl is the greatest sporting event on the
+      planet and it is not even close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Ocean Cup this is year is gonna be crazy with how the Atlanic is
+      going fish right now!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Sharkelona going 3:0 against Mancester United. Anyone surprised??
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Sharkbappe really moves like the ocean itself is scared of him,
+      most terrifying thing I have ever witnessed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: What is Jake Jawl or Logan Jawl that embarssingly lost their boxing
+      match the other day? Can never keep them apart?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: 'IShowShark is really out there, outswimming professional athlets '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Kevin De Finne sucks, we lost the last match because of him and
+      his lazy fins!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: Eden Jawzard vs Kevin De Finne whos clears?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: 'Lionel Finsi vs Cristiano Reefaldo! Lets settle this debate once
+      and for all. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: Cant believe there is sharks out there that this the sharkbowel
+      is bigger than the oceans cup?!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: Romelu Luka-chew really needs to chilllll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: If I didnt break my fin when I was younger I would be a professional
+      right now!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: Miss being out in the open water, kicking rocks with my boys!
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

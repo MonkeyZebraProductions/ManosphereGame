@@ -21,6 +21,42 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d8c98ecadf562b4c81e02197ca040ce
+    m_Address: Music Tweets_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74e78e20625c4c04482c072617100aba
+    m_Address: Open Incel Tweets_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7baf1b10880b9154c8284e1097169648
+    m_Address: HiddenIncelTweets_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9413ead424a1bd942a41a1d219d47356
+    m_Address: Other Translations_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccdd780072c1969458b482ec5eaa49ff
+    m_Address: Sports Tweets_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe64bd12a628632478278e4551965ca4
+    m_Address: Film Tweets_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 56113551f8f4a2940a3f774b70ea0958, type: 2}
   m_SchemaSet:

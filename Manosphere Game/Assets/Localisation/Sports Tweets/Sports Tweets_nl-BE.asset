@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Sports Tweets_nl-BE
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: nl-BE
+  m_SharedData: {fileID: 11400000, guid: a080480eb7a73974c89193abbedfac2d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: Fishball fans houden van het spel omdat het non-stop actie is!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: IShowShark had dit resultaat vorige week al voorspeld maar niemand
+      luisterde zoals gewoonlijk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: Verlengingen in welke sport dan ook zijn echt de meest stressvolle
+      ervaring die je kan hebben in open water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: Sharkbappe beweegt serious alsof hij in een lab gebouwd is, echt
+      waanzig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Cristiano Reefaldo werd wakker en besliste elke dag de meest krankzinnige
+      haai in de oceaan te zijn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: niemand heeft momenteel een beter seizoen dan Lionel Jawsi en ik
+      ga daar geen discussie over voeren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: koude take maar de Shark Bowl is het grootste sportevenement op
+      de planeet en het is niet eens close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Dit jaar gaat de Oceaan Cup echt waanzinnig worden met hoe de Atlantische
+      Oceaan nu aan het vissen is!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Sharkelona 3:0 tegen Manchester United.... is iemand eigenlijk verrast??
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Sharkbappe beweegt echt alsof de oceaan zelf bang van hem is, het
+      is het meest angstaanjagende wat ik ooit heb gezien
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: is het Jake Jawl of Logan Jawl die die bokspartij zo beschamend
+      verloren heeft? kan die twee nooit uit elkaar houden eerlijk gezegd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: IShowShark zwemt serieus sneller dan professionale atleten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Kevin De Finne is een slechte speler, we hebben de laatste wedstrijd
+      verloren vanwege hem en zijn luie vinnen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: Eden Jawzard vs Kevin De Finne wie wint?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: Lionel Finsi vs Cristiano Reefaldo! Laten we deze discussie voor
+      eens en altijd beslissen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: Ik kan niet geloven dat er haaien zijn die denken dat de Shark Bowl
+      groter is dan de Oceaan Cup?!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: Romelu Luka-chew moet echt even rustig aan doen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: als ik mijn vin niet gebroken had toen ik jonger was zou ik nu een
+      proffesional zijn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: Ik mis het buiten zijn in open water, stenen schoppen met mijn boys
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

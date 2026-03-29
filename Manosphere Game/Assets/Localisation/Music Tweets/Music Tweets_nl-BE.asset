@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Music Tweets_nl-BE
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: nl-BE
+  m_SharedData: {fileID: 11400000, guid: 3d7154a0f84142d4ca5462dc2022be57, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: Stray Pups hun nieuwe album is zoooo meh....
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: waarom zijn Taylor Swim haar tickets zo belachelijk duur, ik ga
+      echt blut worden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: Wie is eigenlijk Bite Direction?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: unpopular opinion maar Fin Sheeran heeft nog nooit een slecht album
+      gemaakt, fight me
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Cardi Sea heeft werkelijk gezegd dat ik het luidste wezen in het
+      water zal zijn and heeft zich nooit daarvoor verontschuldigd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: de oceaan om 3 uur 's nachts raakt voelt anders, vertrouw me hierin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: Ik ben mijn koptelefoon vergeten, hoe ga ik deze dag overleven??!!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: haaien die praten tijdens concerten verdienen het gewoon om achtergelaten
+      te worden in open water, punt uit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Bad Guppy dacht serious in het midden van het nummer ''ik ga nu
+      van taal wisselen'' en verkoopt als nog meer dan iedereen in de oceaan.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Sabrina Sharkenter de haai die je bent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Tate McReef beweegt echt als mijn wil om te zwemmen in haar laatste
+      muziekvideo fr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: Ik ga niet liegen maar Bad Guppy's optreden tijdens Sharkbowel was
+      nogal lit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Naar concerten gaan is echt zoooo duur geworden, inmiddels zou ik
+      liever het geld uitgeven aan jawbux!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: Addison Reef is zo lekker, ik wou dat ik haar vinnen had
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: Betrapte mezelf op het loopen van dit nummer alsof ik vast zit in
+      een rif #newsong
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: Nah dit refrein raakt diep... net OCEAN die
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: dit nummer heeft me echt in mijn Sharkira era gebracht fr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: nah bro The Reefend was zo cringe in zijn show, ik kan zijn nummers
+      niet meer aanhoren eerlijk gezegd
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

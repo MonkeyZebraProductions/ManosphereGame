@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: HiddenIncelTweets_nl-BE
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: nl-BE
+  m_SharedData: {fileID: 11400000, guid: 904f9f416baa0834890c87a6e89b141e, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: Waarom gaan de mooiste vissen altijd voor de grootste haaien? het
+      is letterlijk biologie!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: Niemand geeft tegenwoordig nog iets om de pijn van jonge mannelijke
+      haaien
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: Omdat ik jonge haaien vertel overal vragen bij te stellen, hard
+      te werken en zo rijk mogelijk te worden word ik verbannen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: Gentleshark, begrijp dit. Je bent niet voorbestemd in je ei om een
+      bepaald type te zijn. Maak gewoon de juiste keuzes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: RedShark Redemption 2 is een beetje woke, toch?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: Geen enkele haai is perfect, we hebben allemaal tekortkomingen...
+      (Finicus 3:23) maar het is belangrijk je slechte gewoontes te kennen en te
+      zien
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: Als het niet voor mannenen was had Taylor Swim niets om over te
+      zingen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Overswim zou iets moeten doen aan die e-daters, het is walgelijk,
+      hou de vrouwen uit ons spel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Meryl Reef liet zichzelf een beetje gaan in die Bitcraft film trailer,
+      toch?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Het is zo moeilijk een haai te zijn tegenwoordig als al die vrouwen
+      je aanvallen zonder reden''
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Vrouwen die fan zijn van Stray Pups zijn zo een rode vlag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: Lil Nas Shark noemt zichzelf een rapper en zoent dan andere mannen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Waarom zwemmen kleinere vissen en vrouwelijke haaien altijd in groepjes
+      wanneer ik opdaag???
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: Gentlesharks, onthoud altijd dat als je bloed in het water ruikt
+      je moet toeslaan voor de kill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: Een echte gentleshark geeft nooit op! #truealpha #gentleshark
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: De Sharkbowl is echt het enige evenement waar tegenwoordig nog echte
+      haaien spelen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: Sabrina Sharkenter vertelt alle mannelijke haaien echt dat ze nutteloos
+      zijn, huh?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: Vrouwelijke haaien verwachten een grote witte haai maar dragen zelf
+      niets bij aan de oceaan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: De oceaan beloont geen vriendelijkheid maar kracht #AlwaysHas #AlwaysWill'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

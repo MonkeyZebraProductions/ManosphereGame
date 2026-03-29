@@ -28,7 +28,7 @@ public class PrototypeManager : MonoBehaviour
             for (int i = 0; i < 3; i++)
             {
                 CircleTouch randomCircleTouch = allCirclesTouch[Random.Range(0, allCirclesTouch.Length)];
-                randomCircleTouch.SetEnemy(true);
+                //randomCircleTouch.SetEnemy(true);
             }
         }
         else
@@ -37,7 +37,7 @@ public class PrototypeManager : MonoBehaviour
             for (int i = 0; i < 3; i++)
             {
                 Circle randomCircle = allCircles[Random.Range(0, allCircles.Length)];
-                randomCircle.SetEnemy(true);
+                //randomCircle.SetEnemy(true);
             }
         }
     }
