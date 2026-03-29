@@ -28,6 +28,10 @@ MonoBehaviour:
     m_Localized: Manosphere Game
     m_Metadata:
       m_Items: []
+  - m_Id: 359794964103168
+    m_Localized: 'Score: '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

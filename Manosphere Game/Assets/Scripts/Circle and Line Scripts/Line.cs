@@ -1,13 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
-public class LineTouch : MonoBehaviour
+public class Line : MonoBehaviour
 {
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] int lineHealth = 6;
     [SerializeField] float animationSpeed = 6f;
     [SerializeField] float thickness = 0.1f;
     [SerializeField] float endPointMargin = 0.75f;
+
+    [SerializeField] int BreakScore = 50;
+    [SerializeField] float ScoreTick = 0.5f;
 
     GameObject circle0;
     GameObject circle1;
@@ -17,9 +20,13 @@ public class LineTouch : MonoBehaviour
     Vector3 startPos;
     Vector3 endPos;
 
+    private ScoreManager scoreManager;
+
     void Start()
     {
         animationProgress = 0f;
+        scoreManager = FindFirstObjectByType<ScoreManager>();
+        StartCoroutine(IncrementScore());
     }
 
     public void AnimateLine(Vector3 start, Vector3 end)
@@ -47,6 +54,21 @@ public class LineTouch : MonoBehaviour
                 CreateLineCollider();
             }
         }
+    }
+
+    IEnumerator IncrementScore()
+    {
+        if (circle0 != null && circle1 != null)
+        {
+            scoreManager.ChangeScore(!breakable, 1);
+        }
+        yield return new WaitForSeconds(ScoreTick);
+        StartCoroutine(IncrementScore());
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     public void SetCircles(GameObject c0, GameObject c1)
@@ -107,8 +129,8 @@ public class LineTouch : MonoBehaviour
             if (lineHealth <= 0)
             {
                 // Remove the line from the connected circles' lists
-                CircleTouch circle0Script = circle0.GetComponent<CircleTouch>();
-                CircleTouch circle1Script = circle1.GetComponent<CircleTouch>();
+                Circle circle0Script = circle0.GetComponent<Circle>();
+                Circle circle1Script = circle1.GetComponent<Circle>();
 
                 if (circle0Script != null)
                 {
@@ -119,7 +141,7 @@ public class LineTouch : MonoBehaviour
                 {
                     circle1Script.RemoveConnectedCircle(circle0);
                 }
-
+                scoreManager.AddOneTimeScore(BreakScore);
                 Destroy(gameObject);
             }
         }
@@ -144,8 +166,8 @@ public class LineTouch : MonoBehaviour
     {
         if (!breakable)
         {
-            CircleTouch circle0Script = circle0.GetComponent<CircleTouch>();
-            CircleTouch circle1Script = circle1.GetComponent<CircleTouch>();
+            Circle circle0Script = circle0.GetComponent<Circle>();
+            Circle circle1Script = circle1.GetComponent<Circle>();
 
             if (circle0Script != null)
             {
