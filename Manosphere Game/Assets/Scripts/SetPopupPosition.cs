@@ -15,14 +15,6 @@ public class SetPopupPosition : MonoBehaviour
         float screenWidth = Camera.main.pixelWidth;
         float screenHeight = Camera.main.pixelHeight;
 
-        if(screenPos.x > screenWidth*0.75)
-        {
-            rectTransform.position = WestTransform.position;
-        }
-        if(screenPos.x<screenWidth*0.25)
-        {
-            rectTransform.position = EastTransform.position;
-        }
         if(screenPos.y > screenHeight*0.75)
         {
             rectTransform.position = SouthTransform.position;
@@ -31,7 +23,14 @@ public class SetPopupPosition : MonoBehaviour
         {
             rectTransform.position = NorthTransform.position;
         }
-        Debug.Log(screenPos);
+        if(screenPos.x > screenWidth*0.75)
+        {
+            rectTransform.position = WestTransform.position;
+        }
+        if(screenPos.x<screenWidth*0.25)
+        {
+            rectTransform.position = EastTransform.position;
+        }
     }
 
     // Update is called once per frame
