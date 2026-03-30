@@ -12,6 +12,7 @@ public class FadePopup : MonoBehaviour
     private Circle circle;
     private CircleTouch circleTouch;
     private SpriteManager spriteManager;
+    private Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +23,8 @@ public class FadePopup : MonoBehaviour
         circle = GetComponent<Circle>();
         circleTouch = GetComponent<CircleTouch>();
         spriteManager = GetComponentInChildren<SpriteManager>();
+        animator = GetComponentInChildren<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -37,6 +40,8 @@ public class FadePopup : MonoBehaviour
                     if (!_startFade)
                     {
                         _startFade = true;
+                        animator.Play("Popup");
+                        
                     }
                 }
                 else
@@ -45,6 +50,7 @@ public class FadePopup : MonoBehaviour
                     if (!_startFade)
                     {
                         _startFade = true;
+                        animator.Play("Popup Reversed");
                     }
                 }
             }
@@ -56,6 +62,7 @@ public class FadePopup : MonoBehaviour
                     if(!_startFade)
                     {
                         _startFade = true;
+                        animator.Play("Popup Reversed");
                     }
                 }
             }

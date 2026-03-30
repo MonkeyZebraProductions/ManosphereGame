@@ -58,6 +58,17 @@
                     "action": "Double Tap",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be2ea063-100c-4f13-8f7d-a5b0b03b5b5d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Double Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
