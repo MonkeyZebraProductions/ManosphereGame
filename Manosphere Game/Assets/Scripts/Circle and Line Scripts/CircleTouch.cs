@@ -9,6 +9,7 @@ public class CircleTouch : MonoBehaviour
     [SerializeField] float maxConnectionDistance = 3f;
     [SerializeField] bool isEnemy;
     [SerializeField] float infectionTime = 5f;
+    [SerializeField] GameObject glow;
 
     GameObject linesParent;
     GameObject currentLine;
@@ -77,6 +78,7 @@ public class CircleTouch : MonoBehaviour
                     currentLine = Instantiate(linePrefab, linesParent.transform);
                     currentLineRenderer = currentLine.GetComponent<LineRenderer>();
                     currentLineRenderer.SetPosition(0, transform.position);
+                    glow.SetActive(true);
                     
                     Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
                     touchPosition.z = 0;
@@ -120,6 +122,7 @@ public class CircleTouch : MonoBehaviour
             if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<CircleTouch>() != null && !hitCollider.GetComponent<CircleTouch>().IsDiscovered())
             {
                 currentLineRenderer.SetPosition(1, hitCollider.transform.position);
+                glow.SetActive(false);
                 currentLine.GetComponent<LineTouch>().SetCircles(gameObject, hitCollider.gameObject);
                 currentLine.GetComponent<LineTouch>().CreateLineCollider();
                 
@@ -159,6 +162,7 @@ public class CircleTouch : MonoBehaviour
             else
             {
                 Destroy(currentLine);
+                glow.SetActive(false);
             }
         }
 
@@ -268,6 +272,8 @@ public class CircleTouch : MonoBehaviour
 
     public bool PositionIsOverCircle()
     {
+        if (currentTouch == null) return false;
+
         Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
         touchPosition.z = 0;
         float distance = Vector3.Distance(touchPosition, transform.position);
@@ -286,7 +292,7 @@ public class CircleTouch : MonoBehaviour
             {
                 enemyDiscovered = true;
                 circleScript.BacktrackLineInfection();
-                GetComponent<SpriteRenderer>().color = Color.red;
+                circle.GetComponent<SpriteManager>().ChangeBase(Base.Enemy);
                 if (circleScript.NumberOfConnections() < 3 && !circleScript.IsEnemy())
                 {
                     circleScript.Infect(true);

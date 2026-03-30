@@ -35,9 +35,9 @@ public class PrototypeManager : MonoBehaviour
             {
                 CircleTypes randomCircleTypes = allCircleTypes[Random.Range(0, allCircleTypes.Count)];
                 randomCircleTypes.SetToCloseted();
+                
                 Circle randomCircle = randomCircleTypes.gameObject.GetComponent<Circle>();
                 CircleTouch randomCircleTouch = randomCircleTypes.gameObject.GetComponent<CircleTouch>();
-                //randomCircleTypes.gameObject.GetComponent<Circle>().SetEnemy(true);
                 if (randomCircleTouch != null)
                 {
                     randomCircleTouch.SetEnemy(true);

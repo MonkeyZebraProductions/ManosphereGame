@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class FadePopup : MonoBehaviour
 {
     [SerializeField] float FadeSpeed = 3f;
+    [SerializeField] bool noBackground;
 
     bool _isfadedIn, _isfadedOut, _startFade, _fadeIn;
     CanvasGroup canvasGroup;
@@ -26,14 +27,13 @@ public class FadePopup : MonoBehaviour
         circleTouch = GetComponent<CircleTouch>();
         spriteManager = GetComponentInChildren<SpriteManager>();
         animator = GetComponentInChildren<Animator>();
-        BlackBackground = GameObject.Find("Background").GetComponent<SpriteRenderer>();
-        Debug.Log(BlackBackground);
+        if (!noBackground) BlackBackground = GameObject.Find("Background").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(touchAction != null && touchAction.WasPressedThisFrame())
+        if(touchAction != null && touchAction.triggered)
         {
             if ((circle != null && circle.PositionIsOverCircle()) || (circleTouch != null && circleTouch.PositionIsOverCircle()))
             {
@@ -44,7 +44,7 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup");
-                        BlackBackground.enabled = true;
+                        if (!noBackground) BlackBackground.enabled = true;
                         
                     }
                 }
@@ -55,7 +55,7 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup Reversed");
-                        BlackBackground.enabled = false;
+                        if (!noBackground) BlackBackground.enabled = false;
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup Reversed");
-                        BlackBackground.enabled = false;
+                        if (!noBackground) BlackBackground.enabled = false;
                     }
                 }
             }
