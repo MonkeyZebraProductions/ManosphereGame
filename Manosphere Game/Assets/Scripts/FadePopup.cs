@@ -4,10 +4,9 @@ using UnityEngine.InputSystem;
 
 public class FadePopup : MonoBehaviour
 {
+    [SerializeField] float FadeSpeed = 3f;
 
-    [SerializeField] float FadeSpeed = 1f;
-
-    bool _isfadedIn,_isfadedOut,_startFade,_fadeIn;
+    bool _isfadedIn, _isfadedOut, _startFade, _fadeIn;
     CanvasGroup canvasGroup;
     private InputAction touchAction;
     private Circle circle;
@@ -19,7 +18,7 @@ public class FadePopup : MonoBehaviour
     {
         _isfadedOut = true;
         canvasGroup = GetComponentInChildren<CanvasGroup>();
-        touchAction = InputSystem.actions.FindAction("Touch");
+        touchAction = InputSystem.actions.FindAction("Double Tap");
         circle = GetComponent<Circle>();
         circleTouch = GetComponent<CircleTouch>();
         spriteManager = GetComponentInChildren<SpriteManager>();
@@ -30,7 +29,7 @@ public class FadePopup : MonoBehaviour
     {
         if(touchAction != null && touchAction.WasPressedThisFrame())
         {
-            if ((circle!=null && circle.PositionIsOverCircle()) || (circleTouch != null && circleTouch.PositionIsOverCircle()))
+            if ((circle != null && circle.PositionIsOverCircle()) || (circleTouch != null && circleTouch.PositionIsOverCircle()))
             {
                 if (_isfadedOut)
                 {
@@ -38,7 +37,6 @@ public class FadePopup : MonoBehaviour
                     if (!_startFade)
                     {
                         _startFade = true;
-                        
                     }
                 }
                 else
@@ -104,6 +102,4 @@ public class FadePopup : MonoBehaviour
             _startFade = false;
         }
     }
-
-   
 }

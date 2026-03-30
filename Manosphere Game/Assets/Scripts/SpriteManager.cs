@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class SpriteManager : MonoBehaviour
 {
     [Header("Base Sprites")]
@@ -22,7 +21,6 @@ public class SpriteManager : MonoBehaviour
     [SerializeField] private SpriteRenderer AccessoryRenderer;
     private int accessoryIndex;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         chosenDefaultBase = DefaultBases[Random.Range(0, DefaultBases.Length)];
@@ -43,7 +41,7 @@ public class SpriteManager : MonoBehaviour
                 EmotionRenderer.sprite = ConnectedEmotion;
                 break;
             case Emotion.Happy:
-                EmotionRenderer.sprite= HappyEmotion;
+                EmotionRenderer.sprite = HappyEmotion;
                 break;
             case Emotion.Infected:
                 EmotionRenderer.sprite = InfectedEmotion;
@@ -57,7 +55,7 @@ public class SpriteManager : MonoBehaviour
         {
             case Base.Normal:
                 BaseRenderer.sprite = chosenDefaultBase;
-                if(accessoryIndex <=3 && !AccessoryRenderer.enabled)
+                if(accessoryIndex <= 3 && !AccessoryRenderer.enabled)
                 {
                     AccessoryRenderer.enabled = true;
                 }

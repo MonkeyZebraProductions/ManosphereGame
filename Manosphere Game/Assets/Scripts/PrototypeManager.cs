@@ -7,6 +7,7 @@ public class PrototypeManager : MonoBehaviour
 {
     [SerializeField] bool isCircleTouch;
     [SerializeField] bool isTouchscreenSimulation;
+    [SerializeField] bool randomizeEnemyCircles;
 
     void Awake()
     {
@@ -22,22 +23,25 @@ public class PrototypeManager : MonoBehaviour
     {
         Application.targetFrameRate = 30;
 
-        if (isCircleTouch)
+        if (randomizeEnemyCircles)
         {
-            CircleTouch[] allCirclesTouch = FindObjectsByType<CircleTouch>(FindObjectsSortMode.None);
-            for (int i = 0; i < 3; i++)
+            if (isCircleTouch)
             {
-                CircleTouch randomCircleTouch = allCirclesTouch[Random.Range(0, allCirclesTouch.Length)];
-                //randomCircleTouch.SetEnemy(true);
+                CircleTouch[] allCirclesTouch = FindObjectsByType<CircleTouch>(FindObjectsSortMode.None);
+                for (int i = 0; i < 3; i++)
+                {
+                    CircleTouch randomCircleTouch = allCirclesTouch[Random.Range(0, allCirclesTouch.Length)];
+                    randomCircleTouch.SetEnemy(true);
+                }
             }
-        }
-        else
-        {
-            Circle[] allCircles = FindObjectsByType<Circle>(FindObjectsSortMode.None);
-            for (int i = 0; i < 3; i++)
+            else
             {
-                Circle randomCircle = allCircles[Random.Range(0, allCircles.Length)];
-                //randomCircle.SetEnemy(true);
+                Circle[] allCircles = FindObjectsByType<Circle>(FindObjectsSortMode.None);
+                for (int i = 0; i < 3; i++)
+                {
+                    Circle randomCircle = allCircles[Random.Range(0, allCircles.Length)];
+                    randomCircle.SetEnemy(true);
+                }
             }
         }
     }
