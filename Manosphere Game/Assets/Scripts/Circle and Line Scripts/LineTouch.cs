@@ -4,10 +4,10 @@ using System.Collections;
 public class LineTouch : MonoBehaviour
 {
     [SerializeField] LineRenderer lineRenderer;
-    [SerializeField] int lineHealth = 6;
-    [SerializeField] float animationSpeed = 6f;
-    [SerializeField] float thickness = 0.1f;
-    [SerializeField] float endPointMargin = 0.75f;
+    [SerializeField] int lineHealth = 5;
+    [SerializeField] float animationSpeed = 5f;
+    [SerializeField] float thickness = 0.2f;
+    [SerializeField] float endPointMargin = 1f;
 
     [SerializeField] int BreakScore = 50;
     [SerializeField] float ScoreTick = 0.5f;
@@ -58,7 +58,7 @@ public class LineTouch : MonoBehaviour
 
     IEnumerator IncrementScore()
     {
-        if (circle0 != null && circle1 != null)
+        if (circle0 != null && circle1 != null && scoreManager != null)
         {
             scoreManager.ChangeScore(!breakable, 1);
         }
@@ -136,7 +136,10 @@ public class LineTouch : MonoBehaviour
                 {
                     circle1Script.RemoveConnectedCircle(circle0);
                 }
-                scoreManager.AddOneTimeScore(BreakScore);
+                if (scoreManager != null)
+                {
+                    scoreManager.AddOneTimeScore(BreakScore);
+                }
                 Destroy(gameObject);
             }
         }

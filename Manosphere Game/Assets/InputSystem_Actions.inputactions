@@ -14,6 +14,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Double Tap",
+                    "type": "Button",
+                    "id": "772f6a43-9e95-4091-8452-7c68091da325",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -32,10 +41,21 @@
                     "name": "",
                     "id": "ba4666ea-7ffd-41b8-858f-a65e036f39aa",
                     "path": "<Touchscreen>/touch*/Press",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": ";Touch",
                     "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "940f0f94-1625-44f3-bb71-1936e9b83e71",
+                    "path": "<Touchscreen>/touch*/Press",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "Double Tap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

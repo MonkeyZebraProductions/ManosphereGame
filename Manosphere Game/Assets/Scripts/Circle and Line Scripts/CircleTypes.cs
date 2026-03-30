@@ -5,8 +5,8 @@ using UnityEngine.Localization;
 public struct CircleStruct
 {
     public LocalizedStringTable LocalizedStringTable;
-    //public Sprite CircleSprite;
 }
+
 public enum CircleEnum
 {
     Gamer,
@@ -16,6 +16,7 @@ public enum CircleEnum
     Enemy,
     Closeted
 }
+
 public class CircleTypes : MonoBehaviour
 {
     public CircleStruct GamerStruct;
@@ -57,28 +58,17 @@ public class CircleTypes : MonoBehaviour
                 ChosenStuct = originalStruct = MusicStruct;
                 break;
         }
+
         randomString = GetComponentInChildren<SelectRandomString>();
         randomString.circleType = this;
         randomString.enabled = true;
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void ConvertToEnemy()
     {
         randomString.enabled = false;
         ChosenStuct = EnemyStuct;
-        randomString.enabled=true;
-
+        randomString.enabled = true;
     }
 
     public void ConvertToNormal()

@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PrototypeMultiTouchScene.unity
     guid: 31aa7e7e1f867ab4f84f63a7b240d5cc
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 759ae2655ce1e6c4592355acd7eaec22
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 66690edad75aa0d43a96b14fa5cb3cdb, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
