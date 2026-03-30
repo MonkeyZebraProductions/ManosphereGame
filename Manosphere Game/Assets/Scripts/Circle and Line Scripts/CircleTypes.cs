@@ -34,34 +34,40 @@ public class CircleTypes : MonoBehaviour
 
     private SelectRandomString randomString;
 
+    [SerializeField] private bool isTutorial;
+
     private void Awake()
     {
 
-        CircleEnum[] circleEnums = {CircleEnum.Gamer, CircleEnum.Film, CircleEnum.Music, CircleEnum.Sports };
-
-        StartingCircleEnum = circleEnums[Random.Range(0, circleEnums.Length)];
-        switch (StartingCircleEnum)
+        if(!isTutorial)
         {
-            case CircleEnum.Gamer:
-                ChosenStuct = originalStruct = GamerStruct;
-                break;
-            case CircleEnum.Sports:
-                ChosenStuct = originalStruct = SportsStruct;
-                break;
-            case CircleEnum.Film:
-                ChosenStuct = originalStruct = FilmStruct;
-                break;
-            case CircleEnum.Closeted:
-                ChosenStuct = originalStruct = ClosetedStruct;
-                break;
-            case CircleEnum.Music:
-                ChosenStuct = originalStruct = MusicStruct;
-                break;
-        }
 
-        randomString = GetComponentInChildren<SelectRandomString>();
-        randomString.circleType = this;
-        randomString.enabled = true;
+            CircleEnum[] circleEnums = {CircleEnum.Gamer, CircleEnum.Film, CircleEnum.Music, CircleEnum.Sports };
+
+            StartingCircleEnum = circleEnums[Random.Range(0, circleEnums.Length)];
+            switch (StartingCircleEnum)
+            {
+                case CircleEnum.Gamer:
+                    ChosenStuct = originalStruct = GamerStruct;
+                    break;
+                case CircleEnum.Sports:
+                    ChosenStuct = originalStruct = SportsStruct;
+                    break;
+                case CircleEnum.Film:
+                    ChosenStuct = originalStruct = FilmStruct;
+                    break;
+                case CircleEnum.Closeted:
+                    ChosenStuct = originalStruct = ClosetedStruct;
+                    break;
+                case CircleEnum.Music:
+                    ChosenStuct = originalStruct = MusicStruct;
+                    break;
+            }
+
+            randomString = GetComponentInChildren<SelectRandomString>();
+            randomString.circleType = this;
+            randomString.enabled = true;
+        }
     }
 
     public void SetToCloseted()

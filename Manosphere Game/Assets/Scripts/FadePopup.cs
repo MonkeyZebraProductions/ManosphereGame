@@ -26,14 +26,14 @@ public class FadePopup : MonoBehaviour
         circleTouch = GetComponent<CircleTouch>();
         spriteManager = GetComponentInChildren<SpriteManager>();
         animator = GetComponentInChildren<Animator>();
-        BlackBackground = GameObject.Find("Background").GetComponent<SpriteRenderer>();
-        Debug.Log(BlackBackground);
+        //BlackBackground = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+        //Debug.Log(BlackBackground);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(touchAction != null && touchAction.WasPressedThisFrame())
+        if (touchAction != null && touchAction.WasPressedThisFrame())
         {
             if ((circle != null && circle.PositionIsOverCircle()) || (circleTouch != null && circleTouch.PositionIsOverCircle()))
             {
@@ -44,8 +44,11 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup");
-                        BlackBackground.enabled = true;
-                        
+                        if (BlackBackground != null)
+                        {
+                            BlackBackground.enabled = true;
+                        }
+
                     }
                 }
                 else
@@ -55,7 +58,10 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup Reversed");
-                        BlackBackground.enabled = false;
+                        if (BlackBackground != null)
+                        {
+                            BlackBackground.enabled = false;
+                        }
                     }
                 }
             }
@@ -64,19 +70,28 @@ public class FadePopup : MonoBehaviour
                 if (_isfadedIn)
                 {
                     _fadeIn = false;
-                    if(!_startFade)
+                    if (!_startFade)
                     {
                         _startFade = true;
                         animator.Play("Popup Reversed");
-                        BlackBackground.enabled = false;
+                        if (BlackBackground != null)
+                        {
+                            BlackBackground.enabled = false;
+                        }
                     }
                 }
             }
             spriteManager.MoveSpriteLayer(_fadeIn);
         }
-        if(_startFade)
+        
+ 
+    }
+
+    private void FixedUpdate()
+    {
+        if (_startFade)
         {
-            if(_fadeIn)
+            if (_fadeIn)
             {
                 FadeInCircle();
             }
@@ -85,16 +100,13 @@ public class FadePopup : MonoBehaviour
                 FadeOutCircle();
             }
         }
-        
- 
     }
-
     void FadeInCircle()
     {
         if (canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += Time.deltaTime * FadeSpeed;
-            gameObject.transform.localScale += new Vector3(0.01f, 0.01f, 0f);
+            gameObject.transform.localScale += new Vector3(0.025f, 0.025f, 0f);
         }
         else
         {
@@ -109,7 +121,7 @@ public class FadePopup : MonoBehaviour
         if (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime * FadeSpeed;
-            gameObject.transform.localScale -= new Vector3(0.01f, 0.01f, 0f);
+            gameObject.transform.localScale -= new Vector3(0.025f, 0.025f, 0f);
         }
         else
         {

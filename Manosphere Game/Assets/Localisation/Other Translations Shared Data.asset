@@ -27,6 +27,26 @@ MonoBehaviour:
     m_Key: ConorTestScene/Main Game Canvas/Text (TMP)
     m_Metadata:
       m_Items: []
+  - m_Id: 703046475911168
+    m_Key: TutorialScene/Shark/Canvas/Panel/Tweet Contents
+    m_Metadata:
+      m_Items: []
+  - m_Id: 703162242895872
+    m_Key: TutorialScene/Shark (1)/Canvas/Panel/Tweet Contents
+    m_Metadata:
+      m_Items: []
+  - m_Id: 704521570684928
+    m_Key: Shark2 Tweets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 707411588747264
+    m_Key: Shark3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 709753088315392
+    m_Key: Shark4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
