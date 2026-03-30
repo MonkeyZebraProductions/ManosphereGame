@@ -37,7 +37,7 @@ public class CircleTypes : MonoBehaviour
     private void Awake()
     {
 
-        CircleEnum[] circleEnums = { CircleEnum.Closeted, CircleEnum.Gamer, CircleEnum.Film, CircleEnum.Music, CircleEnum.Sports };
+        CircleEnum[] circleEnums = {CircleEnum.Gamer, CircleEnum.Film, CircleEnum.Music, CircleEnum.Sports };
 
         StartingCircleEnum = circleEnums[Random.Range(0, circleEnums.Length)];
         switch (StartingCircleEnum)
@@ -64,6 +64,12 @@ public class CircleTypes : MonoBehaviour
         randomString.enabled = true;
     }
 
+    public void SetToCloseted()
+    {
+        randomString.enabled = false;
+        ChosenStuct = originalStruct = ClosetedStruct;
+        randomString.enabled = true;
+    }
     public void ConvertToEnemy()
     {
         randomString.enabled = false;

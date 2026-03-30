@@ -26,7 +26,10 @@ public class Line : MonoBehaviour
     {
         animationProgress = 0f;
         scoreManager = FindFirstObjectByType<ScoreManager>();
-        StartCoroutine(IncrementScore());
+        if (scoreManager != null)
+        {
+            StartCoroutine(IncrementScore());
+        }
     }
 
     public void AnimateLine(Vector3 start, Vector3 end)

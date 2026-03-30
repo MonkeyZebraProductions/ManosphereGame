@@ -12,6 +12,9 @@ public class FadePopup : MonoBehaviour
     private Circle circle;
     private CircleTouch circleTouch;
     private SpriteManager spriteManager;
+    private Animator animator;
+
+    private SpriteRenderer BlackBackground;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +25,9 @@ public class FadePopup : MonoBehaviour
         circle = GetComponent<Circle>();
         circleTouch = GetComponent<CircleTouch>();
         spriteManager = GetComponentInChildren<SpriteManager>();
+        animator = GetComponentInChildren<Animator>();
+        BlackBackground = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+        Debug.Log(BlackBackground);
     }
 
     // Update is called once per frame
@@ -37,6 +43,9 @@ public class FadePopup : MonoBehaviour
                     if (!_startFade)
                     {
                         _startFade = true;
+                        animator.Play("Popup");
+                        BlackBackground.enabled = true;
+                        
                     }
                 }
                 else
@@ -45,6 +54,8 @@ public class FadePopup : MonoBehaviour
                     if (!_startFade)
                     {
                         _startFade = true;
+                        animator.Play("Popup Reversed");
+                        BlackBackground.enabled = false;
                     }
                 }
             }
@@ -56,6 +67,8 @@ public class FadePopup : MonoBehaviour
                     if(!_startFade)
                     {
                         _startFade = true;
+                        animator.Play("Popup Reversed");
+                        BlackBackground.enabled = false;
                     }
                 }
             }
@@ -73,6 +86,7 @@ public class FadePopup : MonoBehaviour
             }
         }
         
+ 
     }
 
     void FadeInCircle()
@@ -80,6 +94,7 @@ public class FadePopup : MonoBehaviour
         if (canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += Time.deltaTime * FadeSpeed;
+            gameObject.transform.localScale += new Vector3(0.01f, 0.01f, 0f);
         }
         else
         {
@@ -94,6 +109,7 @@ public class FadePopup : MonoBehaviour
         if (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime * FadeSpeed;
+            gameObject.transform.localScale -= new Vector3(0.01f, 0.01f, 0f);
         }
         else
         {

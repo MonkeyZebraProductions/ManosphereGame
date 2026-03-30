@@ -1,14 +1,17 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.SceneManagement;
 
 public class PrototypeManager : MonoBehaviour
 {
     [SerializeField] bool isCircleTouch;
     [SerializeField] bool isTouchscreenSimulation;
     [SerializeField] bool randomizeEnemyCircles;
-
+    
     void Awake()
     {
         if (isTouchscreenSimulation)
@@ -25,24 +28,27 @@ public class PrototypeManager : MonoBehaviour
 
         if (randomizeEnemyCircles)
         {
-            if (isCircleTouch)
+            List<CircleTypes> allCircleTypes = new List<CircleTypes>();
+            allCircleTypes.AddRange(FindObjectsByType<CircleTypes>(FindObjectsSortMode.None));
+               
+            for (int i = 0; i < 3; i++)
             {
-                CircleTouch[] allCirclesTouch = FindObjectsByType<CircleTouch>(FindObjectsSortMode.None);
-                for (int i = 0; i < 3; i++)
+                CircleTypes randomCircleTypes = allCircleTypes[Random.Range(0, allCircleTypes.Count)];
+                randomCircleTypes.SetToCloseted();
+                Circle randomCircle = randomCircleTypes.gameObject.GetComponent<Circle>();
+                CircleTouch randomCircleTouch = randomCircleTypes.gameObject.GetComponent<CircleTouch>();
+                //randomCircleTypes.gameObject.GetComponent<Circle>().SetEnemy(true);
+                if (randomCircleTouch != null)
                 {
-                    CircleTouch randomCircleTouch = allCirclesTouch[Random.Range(0, allCirclesTouch.Length)];
                     randomCircleTouch.SetEnemy(true);
                 }
-            }
-            else
-            {
-                Circle[] allCircles = FindObjectsByType<Circle>(FindObjectsSortMode.None);
-                for (int i = 0; i < 3; i++)
+                if (randomCircle != null)
                 {
-                    Circle randomCircle = allCircles[Random.Range(0, allCircles.Length)];
                     randomCircle.SetEnemy(true);
                 }
+                allCircleTypes.Remove(randomCircleTypes);
             }
+           
         }
     }
 

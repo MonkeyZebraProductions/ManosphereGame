@@ -30,6 +30,14 @@ public class SpriteManager : MonoBehaviour
         AccessoryRenderer.sprite = DefaultAccessories[accessoryIndex];
     }
 
+    private void Update()
+    {
+        if((BaseRenderer.sprite == EnemyBase || BaseRenderer.sprite == InfectedBase) && EmotionRenderer.sprite == ConnectedEmotion)
+        {
+            EmotionRenderer.sprite = InfectedEmotion;
+        }
+    }
+
     public void ChangeEmotion(Emotion newEmotion)
     {
         switch(newEmotion)
