@@ -35,7 +35,7 @@ public class Circle : MonoBehaviour
         nextInfectionTime = Random.Range(infectionTime, infectionTime*1.5f);
         circleType = GetComponent<CircleTypes>();
         spriteManager = GetComponentInChildren<SpriteManager>();
-        isEnemy = (circleType.StartingCircleEnum == CircleEnum.Closeted);
+        //isEnemy = (circleType.StartingCircleEnum == CircleEnum.Closeted);
     }
 
     void Update()
