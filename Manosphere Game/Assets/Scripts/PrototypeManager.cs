@@ -5,15 +5,27 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PrototypeManager : MonoBehaviour
 {
     [SerializeField] bool isCircleTouch;
     [SerializeField] bool isTouchscreenSimulation;
     [SerializeField] bool randomizeEnemyCircles;
+
+    [Header("Debug")]
+    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI debugText;
+
+    float forgivenessTouchDistance = 0.25f;
     
     void Awake()
     {
+        if (text != null)
+        {
+            text.text = "Forgiveness Touch Distance: " + forgivenessTouchDistance.ToString("F2");
+        }
+
         if (isTouchscreenSimulation)
         {
             EnhancedTouchSupport.Enable();
@@ -75,5 +87,51 @@ public class PrototypeManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void SettingForgivenessTouchDistance()
+    {
+        if (forgivenessTouchDistance == 0.25f)
+        {
+            forgivenessTouchDistance = 0.5f;
+        }
+        else if (forgivenessTouchDistance == 0.5f)
+        {
+            forgivenessTouchDistance = 1f;
+        }
+        else if (forgivenessTouchDistance == 1f)
+        {
+            forgivenessTouchDistance = 2f;
+        }
+        else
+        {
+            forgivenessTouchDistance = 0.25f;
+        }
+
+        text.text = "Forgiveness Touch Distance: " + forgivenessTouchDistance.ToString("F2");
+
+        CircleTouch[] allCircleTouches = FindObjectsByType<CircleTouch>(FindObjectsSortMode.None);
+        foreach (CircleTouch circleTouch in allCircleTouches)
+        {
+            circleTouch.SetForgivenessTouchDistance(forgivenessTouchDistance);
+        }
+    }
+
+    public void DebugMode()
+    {
+        if (debugText.text == "Debug Mode: OFF")
+        {
+            debugText.text = "Debug Mode: ON";
+        }
+        else
+        {
+            debugText.text = "Debug Mode: OFF";
+        }
+
+        CircleTouch[] allCircleTouches = FindObjectsByType<CircleTouch>(FindObjectsSortMode.None);
+        foreach (CircleTouch circleTouch in allCircleTouches)
+        {
+            circleTouch.ToggleDebugMode();
+        }
     }
 }
