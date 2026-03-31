@@ -15,6 +15,7 @@ public class FadePopup : MonoBehaviour
     private Animator animator;
 
     private SpriteRenderer BlackBackground;
+    private AudioManager audioManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +27,7 @@ public class FadePopup : MonoBehaviour
         circleTouch = GetComponent<CircleTouch>();
         spriteManager = GetComponentInChildren<SpriteManager>();
         animator = GetComponentInChildren<Animator>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         //BlackBackground = GameObject.Find("Background").GetComponent<SpriteRenderer>();
         //Debug.Log(BlackBackground);
     }
@@ -44,6 +46,13 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup");
+                        if(audioManager != null)
+                        {
+                            if(!audioManager.IsPlaying("TweetReduction"))
+                            {
+                                audioManager.Play("TweetPopup");
+                            }
+                        }
                         if (BlackBackground != null)
                         {
                             BlackBackground.enabled = true;
@@ -58,6 +67,13 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup Reversed");
+                        if (audioManager != null)
+                        {
+                            if (!audioManager.IsPlaying("TweetPopup"))
+                            {
+                                audioManager.Play("TweetReduction");
+                            }
+                        }
                         if (BlackBackground != null)
                         {
                             BlackBackground.enabled = false;
@@ -74,6 +90,13 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup Reversed");
+                        if (audioManager != null)
+                        {
+                            if (!audioManager.IsPlaying("TweetPopup"))
+                            {
+                                audioManager.Play("TweetReduction");
+                            }
+                        }
                         if (BlackBackground != null)
                         {
                             BlackBackground.enabled = false;

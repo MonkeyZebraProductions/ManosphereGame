@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4425023450364004268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579485090400398668}
+  - component: {fileID: 7988096387856057351}
+  - component: {fileID: 5773163239060400930}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579485090400398668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425023450364004268}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 829.64795, y: 556.5229, z: -104.17264}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7988096387856057351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425023450364004268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8764604deaedb4ebdbe2723d3482b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  effectsVolume: 1
+  musicVolume: 1
+  sounds:
+  - clipName: BackgroundMusic
+    clip: {fileID: 8300000, guid: 31f1b87c8f4bd7a4280cbf185ae4d697, type: 3}
+    isMusic: 1
+    threeD: 0
+    mute: 0
+    loop: 1
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: TweetPopup
+    clip: {fileID: 8300000, guid: 50ca27db712706241a9cbeef8fc902f8, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: TweetReduction
+    clip: {fileID: 8300000, guid: 3063fa460afff3d488759bf0672de5d6, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: EnemyEntered
+    clip: {fileID: 8300000, guid: 7d3891baa3a3a824ea34458ec5809ac5, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: ConnectionMade
+    clip: {fileID: 8300000, guid: cb6ee8f6bf038944c9364fb23a21c618, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: ConnectionMade1
+    clip: {fileID: 8300000, guid: cb6ee8f6bf038944c9364fb23a21c618, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: ConnectionMade2
+    clip: {fileID: 8300000, guid: cb6ee8f6bf038944c9364fb23a21c618, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: BreakConnection
+    clip: {fileID: 8300000, guid: 983b52bead8f4114a9f44be9708bf311, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: 'BreakConnection1 '
+    clip: {fileID: 8300000, guid: 983b52bead8f4114a9f44be9708bf311, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: BadConnectionMade
+    clip: {fileID: 8300000, guid: 9fbbd9ce1281d8844bba7e96f1b82480, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: BadConnectionMade1
+    clip: {fileID: 8300000, guid: 9fbbd9ce1281d8844bba7e96f1b82480, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: BadConnectionMade2
+    clip: {fileID: 8300000, guid: 9fbbd9ce1281d8844bba7e96f1b82480, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Cut
+    clip: {fileID: 8300000, guid: 97a6b319698b8464694ea03376ce2219, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Cut1
+    clip: {fileID: 8300000, guid: 97a6b319698b8464694ea03376ce2219, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Cut2
+    clip: {fileID: 8300000, guid: 97a6b319698b8464694ea03376ce2219, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Cut3
+    clip: {fileID: 8300000, guid: 97a6b319698b8464694ea03376ce2219, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+--- !u!114 &5773163239060400930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425023450364004268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba670ddb185e6641bce51dbe2a29bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrototypeManager
+  isCircleTouch: 0
+  isTouchscreenSimulation: 0
+  randomizeEnemyCircles: 1

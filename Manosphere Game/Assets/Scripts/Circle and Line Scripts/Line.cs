@@ -21,6 +21,7 @@ public class Line : MonoBehaviour
     Vector3 endPos;
 
     private ScoreManager scoreManager;
+    private AudioManager audioManager;
 
     void Start()
     {
@@ -78,6 +79,18 @@ public class Line : MonoBehaviour
     {
         circle0 = c0;
         circle1 = c1;
+        if(audioManager  != null)
+        {
+            audioManager.PlayIfNotPlaying("ConnectionMade");
+            if (audioManager.IsPlaying("ConnectionMade"))
+            {
+                 audioManager.PlayIfNotPlaying("ConnectionMade1");
+                if (audioManager.IsPlaying("ConnectionMade1"))
+                {
+                     audioManager.PlayIfNotPlaying("ConnectionMade2");
+                }
+            }
+        }
     }
 
     public GameObject GetCircle0()
@@ -127,6 +140,27 @@ public class Line : MonoBehaviour
         if (breakable && other.CompareTag("Cut"))
         {
             lineHealth--;
+            if (audioManager != null)
+            {
+                audioManager.SetSoundPitch("Cut", Random.Range(0.9f, 1.1f));
+                audioManager.PlayIfNotPlaying("Cut");
+                if (audioManager.IsPlaying("Cut"))
+                {
+                    audioManager.SetSoundPitch("Cut1", Random.Range(0.9f, 1.1f));
+                    audioManager.PlayIfNotPlaying("Cut1");
+                    if (audioManager.IsPlaying("Cut1"))
+                    {
+                        audioManager.SetSoundPitch("Cut2", Random.Range(0.9f, 1.1f));
+                        audioManager.PlayIfNotPlaying("Cut2");
+                        if (audioManager.IsPlaying("Cut2"))
+                        {
+                            audioManager.SetSoundPitch("Cut3", Random.Range(0.9f, 1.1f));
+                            audioManager.PlayIfNotPlaying("Cut3");
+                        }
+                    }
+                }
+
+            }
             StartCoroutine(Flash());
 
             if (lineHealth <= 0)
@@ -145,6 +179,10 @@ public class Line : MonoBehaviour
                     circle1Script.RemoveConnectedCircle(circle0);
                 }
                 scoreManager.AddOneTimeScore(BreakScore);
+                if (audioManager != null)
+                {
+                    audioManager.Play("BreakConnection");
+                }
                 Destroy(gameObject);
             }
         }

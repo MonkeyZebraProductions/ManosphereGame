@@ -20,6 +20,7 @@ public class Circle : MonoBehaviour
     float nextInfectionTime;
 
     private SpriteManager spriteManager;
+    private AudioManager audioManager;
     private CircleTypes circleType;
 
     // Prevents players from connecting lines to enemies once they have been discovered
@@ -35,6 +36,7 @@ public class Circle : MonoBehaviour
         nextInfectionTime = Random.Range(infectionTime, infectionTime*1.5f);
         circleType = GetComponent<CircleTypes>();
         spriteManager = GetComponentInChildren<SpriteManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         //isEnemy = (circleType.StartingCircleEnum == CircleEnum.Closeted);
     }
 
@@ -118,6 +120,10 @@ public class Circle : MonoBehaviour
                     enemyDiscovered = true;
                     spriteManager.ChangeBase(Base.Enemy);
                     currentLine.GetComponent<Line>().InfectLine();
+                    if(audioManager != null)
+                    {
+                        audioManager.Play("EnemyEntered");
+                    }
                     if (otherCircleScript != null)
                     {
                         if (otherCircleScript.NumberOfConnections() < 3 && !otherCircleScript.IsEnemy())
@@ -263,9 +269,28 @@ public class Circle : MonoBehaviour
                 enemyDiscovered = true;
                 circleScript.BacktrackLineInfection();
                 spriteManager.ChangeBase(Base.Enemy);
+                if (audioManager != null)
+                {
+                    audioManager.Play("EnemyEntered");
+                }
                 if (circleScript.NumberOfConnections() < 3 && !circleScript.IsEnemy())
                 {
                     circleScript.Infect(true);
+                }
+            }
+            else if (!isEnemy&& !IsConnectedToInfectedOrEnemy())
+            {
+                if (audioManager != null)
+                {
+                    audioManager.PlayIfNotPlaying("ConnectionMade");
+                    if (audioManager.IsPlaying("ConnectionMade"))
+                    {
+                        audioManager.PlayIfNotPlaying("ConnectionMade1");
+                    }
+                    if (audioManager.IsPlaying("ConnectionMade1"))
+                    {
+                        audioManager.Play("ConnectionMade2");
+                    }
                 }
             }
         }
@@ -326,6 +351,18 @@ public class Circle : MonoBehaviour
         {
             spriteManager.ChangeBase(Base.Infected); // Light red for infected circles that are not enemies
             circleType.ConvertToEnemy();
+            if (audioManager != null)
+            {
+                audioManager.PlayIfNotPlaying("BadConnectionMade");
+                if (audioManager.IsPlaying("BadConnectionMade"))
+                {
+                    audioManager.PlayIfNotPlaying("BadConnectionMade1");
+                }
+                if (audioManager.IsPlaying("BadConnectionMade1"))
+                {
+                    audioManager.Play("BadConnectionMade2");
+                }
+            }
         }
         else if (!isEnemy && !infected)
         {

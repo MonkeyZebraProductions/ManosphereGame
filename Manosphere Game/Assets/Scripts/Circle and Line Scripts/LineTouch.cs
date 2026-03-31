@@ -21,11 +21,13 @@ public class LineTouch : MonoBehaviour
     Vector3 endPos;
 
     private ScoreManager scoreManager;
+    private AudioManager audioManager;
 
     void Start()
     {
         animationProgress = 0f;
         scoreManager = FindFirstObjectByType<ScoreManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
         StartCoroutine(IncrementScore());
     }
 
@@ -69,7 +71,7 @@ public class LineTouch : MonoBehaviour
     public void SetCircles(GameObject c0, GameObject c1)
     {
         circle0 = c0;
-        circle1 = c1;
+        circle1 = c1;       
     }
 
     public GameObject GetCircle0()
@@ -119,6 +121,27 @@ public class LineTouch : MonoBehaviour
         if (breakable && other.CompareTag("Cut"))
         {
             lineHealth--;
+            if(audioManager != null)
+            {
+                audioManager.SetSoundPitch("Cut", Random.Range(0.9f, 1.1f));
+                audioManager.PlayIfNotPlaying("Cut");
+                if (audioManager.IsPlaying("Cut"))
+                {
+                    audioManager.SetSoundPitch("Cut1", Random.Range(0.9f, 1.1f));
+                    audioManager.PlayIfNotPlaying("Cut1");
+                    if (audioManager.IsPlaying("Cut1"))
+                    {
+                        audioManager.SetSoundPitch("Cut2", Random.Range(0.9f, 1.1f));
+                        audioManager.PlayIfNotPlaying("Cut2");
+                        if (audioManager.IsPlaying("Cut2"))
+                        {
+                            audioManager.SetSoundPitch("Cut3", Random.Range(0.9f, 1.1f));
+                            audioManager.PlayIfNotPlaying("Cut3");
+                        }
+                    }
+                }
+                    
+            }
             StartCoroutine(Flash());
 
             if (lineHealth <= 0)
@@ -139,6 +162,10 @@ public class LineTouch : MonoBehaviour
                 if (scoreManager != null)
                 {
                     scoreManager.AddOneTimeScore(BreakScore);
+                }
+                if (audioManager != null)
+                {
+                    audioManager.Play("BreakConnection");
                 }
                 Destroy(gameObject);
             }

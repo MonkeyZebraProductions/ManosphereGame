@@ -164,4 +164,18 @@ public class AudioManager : MonoBehaviour
             s.source.Stop();
         }
     }
+
+    public void SetSoundPitch(string name,float pitch)
+    {
+        if (name == "") return;
+
+        Sound s = Array.Find(sounds, sound => sound.clipName == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        s.source.pitch = pitch;
+    }
 }
