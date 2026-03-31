@@ -1,10 +1,14 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class FadePopup : MonoBehaviour
 {
     [SerializeField] float FadeSpeed = 3f;
+    [SerializeField] bool isTutorial;
+
+    public UnityEvent TutorialOnFadeOut;
 
     bool _isfadedIn, _isfadedOut, _startFade, _fadeIn;
     CanvasGroup canvasGroup;
@@ -151,6 +155,10 @@ public class FadePopup : MonoBehaviour
             _isfadedIn = false;
             _isfadedOut = true;
             _startFade = false;
+            if(isTutorial)
+            {
+                TutorialOnFadeOut.Invoke();
+            }
         }
     }
 }

@@ -47,6 +47,26 @@ MonoBehaviour:
     m_Key: Shark4
     m_Metadata:
       m_Items: []
+  - m_Id: 1077095946452992
+    m_Key: TutorialScene/Tutorial Canvas/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1081113498288128
+    m_Key: TutorialScene/Tutorial Canvas/Text (TMP) 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1082654716264448
+    m_Key: TutorialScene/Tutorial Canvas/Text (TMP) 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1129280809926656
+    m_Key: TutorialScene/Tutorial Canvas/Text (TMP) 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1130414609989632
+    m_Key: TutorialScene/Tutorial Canvas/Reintergrate
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -5,9 +5,9 @@ public class SpriteManager : MonoBehaviour
     [Header("Base Sprites")]
     [SerializeField] private Sprite[] DefaultBases;
     private Sprite chosenDefaultBase;
-    [SerializeField] private Sprite InfectedBase;
+    [SerializeField] public Sprite InfectedBase;
     [SerializeField] private Sprite EnemyBase;
-    [SerializeField] private SpriteRenderer BaseRenderer;
+    [SerializeField] public SpriteRenderer BaseRenderer;
 
     [Header("Emotion Sprites")]
     [SerializeField] private Sprite AloneEmotion;

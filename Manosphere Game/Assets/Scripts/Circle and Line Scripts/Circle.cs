@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class Circle : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class Circle : MonoBehaviour
     [SerializeField] float maxConnectionDistance = 3f;
     [SerializeField] bool isEnemy;
     [SerializeField] float infectionTime = 5f;
+    [SerializeField] bool isTutorial;
+
+    public UnityEvent OnTutorialConnect;
+    public UnityEvent OnTutorialEnemyDiscover;
 
     GameObject linesParent;
     GameObject currentLine;
@@ -100,6 +105,10 @@ public class Circle : MonoBehaviour
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
+                if(isTutorial)
+                {
+                    OnTutorialConnect.Invoke();
+                }
                 if(!isEnemy)
                 {
                     spriteManager.ChangeEmotion(Emotion.Connected);
@@ -123,6 +132,10 @@ public class Circle : MonoBehaviour
                     if(audioManager != null)
                     {
                         audioManager.Play("EnemyEntered");
+                    }
+                    if (isTutorial)
+                    {
+                        OnTutorialEnemyDiscover.Invoke();
                     }
                     if (otherCircleScript != null)
                     {
@@ -268,7 +281,15 @@ public class Circle : MonoBehaviour
             {
                 enemyDiscovered = true;
                 circleScript.BacktrackLineInfection();
-                spriteManager.ChangeBase(Base.Enemy);
+                spriteManager.ChangeBase(Base.Enemy); // Light red for infected circles that are not enemies
+                if (isTutorial)
+                {
+                    OnTutorialEnemyDiscover.Invoke();
+                }
+                else
+                {
+                    circleType.ConvertToEnemy();
+                }
                 if (audioManager != null)
                 {
                     audioManager.Play("EnemyEntered");

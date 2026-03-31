@@ -78,9 +78,13 @@ public class CircleTypes : MonoBehaviour
     }
     public void ConvertToEnemy()
     {
-        randomString.enabled = false;
-        ChosenStuct = EnemyStuct;
-        randomString.enabled = true;
+        if(!isTutorial)
+        {
+            randomString.enabled = false;
+            ChosenStuct = EnemyStuct;
+            randomString.enabled = true;
+
+        }
     }
 
     public void ConvertToNormal()

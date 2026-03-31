@@ -132,11 +132,11 @@ public class LineTouch : MonoBehaviour
                     if (audioManager.IsPlaying("Cut1"))
                     {
                         audioManager.SetSoundPitch("Cut2", Random.Range(0.9f, 1.1f));
-                        audioManager.PlayIfNotPlaying("Cut2");
+                        audioManager.Play("Cut2");
                         if (audioManager.IsPlaying("Cut2"))
                         {
                             audioManager.SetSoundPitch("Cut3", Random.Range(0.9f, 1.1f));
-                            audioManager.PlayIfNotPlaying("Cut3");
+                            audioManager.Play("Cut3");
                         }
                     }
                 }

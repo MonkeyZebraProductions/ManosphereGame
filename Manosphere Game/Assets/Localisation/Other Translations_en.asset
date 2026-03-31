@@ -37,7 +37,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 703162242895872
-    m_Localized: Floatin on in. The water feels good
+    m_Localized: Floatin on in. The water feels good. Let's make some connections.
     m_Metadata:
       m_Items: []
   - m_Id: 704521570684928
@@ -52,6 +52,26 @@ MonoBehaviour:
   - m_Id: 709753088315392
     m_Localized: 'Alpha Frenzy, remeber: female sharks are just fish food, and pup
       makers. Never forget it.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1077095946452992
+    m_Localized: GAH! An incel! Cut the connection before they infect others!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1081113498288128
+    m_Localized: Great! Now they are mutuals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1082654716264448
+    m_Localized: Nice! Youve made a healthy community
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1129280809926656
+    m_Localized: Well done. Now you're ready for a real challenge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1130414609989632
+    m_Localized: Reconnect with the alone and infected to cure them
     m_Metadata:
       m_Items: []
   references:

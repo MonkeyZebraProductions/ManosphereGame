@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 public class CircleTouch : MonoBehaviour
@@ -9,6 +10,10 @@ public class CircleTouch : MonoBehaviour
     [SerializeField] float maxConnectionDistance = 3f;
     [SerializeField] bool isEnemy;
     [SerializeField] float infectionTime = 5f;
+    [SerializeField] bool isTutorial;
+
+    public UnityEvent OnTutorialConnect;
+    public UnityEvent OnTutorialEnemyDiscover;
 
     GameObject linesParent;
     GameObject currentLine;
@@ -126,6 +131,10 @@ public class CircleTouch : MonoBehaviour
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
+                if (isTutorial)
+                {
+                    OnTutorialConnect.Invoke();
+                }
                 if (!isEnemy)
                 {
                     spriteManager.ChangeEmotion(Emotion.Connected);
@@ -143,9 +152,17 @@ public class CircleTouch : MonoBehaviour
                     enemyDiscovered = true;
                     spriteManager.ChangeBase(Base.Enemy);
                     currentLine.GetComponent<LineTouch>().InfectLine();
+                    if (isTutorial)
+                    {
+                        OnTutorialEnemyDiscover.Invoke();
+                    }
                     if (audioManager != null)
                     {
                         audioManager.Play("EnemyEntered");
+                    }
+                    if (isTutorial)
+                    {
+                        OnTutorialEnemyDiscover.Invoke();
                     }
                     if (otherCircleScript != null)
                     {
@@ -291,7 +308,15 @@ public class CircleTouch : MonoBehaviour
             {
                 enemyDiscovered = true;
                 circleScript.BacktrackLineInfection();
-                GetComponent<SpriteRenderer>().color = Color.red;
+                spriteManager.ChangeBase(Base.Enemy); // Light red for infected circles that are not enemies
+                if (isTutorial)
+                {
+                    OnTutorialEnemyDiscover.Invoke();
+                }
+                else
+                {
+                    circleType.ConvertToEnemy();
+                }
                 if (audioManager != null)
                 {
                     audioManager.Play("EnemyEntered");
