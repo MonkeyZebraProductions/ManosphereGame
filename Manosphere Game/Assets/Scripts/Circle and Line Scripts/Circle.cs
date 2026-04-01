@@ -10,6 +10,7 @@ public class Circle : MonoBehaviour
     [SerializeField] bool isEnemy;
     [SerializeField] float infectionTime = 5f;
     [SerializeField] bool isTutorial;
+    bool didTutorialTask;
 
     public UnityEvent OnTutorialConnect;
     public UnityEvent OnTutorialEnemyDiscover;
@@ -47,6 +48,11 @@ public class Circle : MonoBehaviour
 
     void Update()
     {
+        if(NumberOfConnections() >= 2 && !isEnemy && !IsConnectedToInfectedOrEnemy())
+            {
+                spriteManager.ChangeEmotion(Emotion.Happy);
+            }
+
         // Prevents players from connecting lines from enemies once they have been discovered or if the circle is already infected
         if (touchAction.IsPressed() && !enemyDiscovered && !isInfected)
         {
@@ -105,13 +111,18 @@ public class Circle : MonoBehaviour
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
-                if(isTutorial)
+               if (isTutorial && !didTutorialTask)
                 {
                     OnTutorialConnect.Invoke();
+                    didTutorialTask = true;
                 }
                 if(!isEnemy)
                 {
                     spriteManager.ChangeEmotion(Emotion.Connected);
+                   if(NumberOfConnections() >= 2)
+                    {
+                        spriteManager.ChangeEmotion(Emotion.Happy);
+                    }
                 }
                 Circle otherCircleScript = hitCollider.GetComponent<Circle>();
                 if (otherCircleScript != null)
@@ -271,6 +282,7 @@ public class Circle : MonoBehaviour
 
     public void AddConnectedCircle(GameObject circle)
     {
+        
         if (!connectedCircles.Contains(circle))
         {
             connectedCircles.Add(circle);
@@ -313,6 +325,7 @@ public class Circle : MonoBehaviour
                         audioManager.Play("ConnectionMade2");
                     }
                 }
+                
             }
         }
     }

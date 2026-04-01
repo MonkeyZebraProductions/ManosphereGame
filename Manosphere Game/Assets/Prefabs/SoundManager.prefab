@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 579485090400398668}
   - component: {fileID: 7988096387856057351}
-  - component: {fileID: 5773163239060400930}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -73,7 +72,7 @@ MonoBehaviour:
     ignorePause: 0
     source: {fileID: 0}
   - clipName: EnemyEntered
-    clip: {fileID: 8300000, guid: 7d3891baa3a3a824ea34458ec5809ac5, type: 3}
+    clip: {fileID: 8300000, guid: 9f3cc3db38dcb7a418d1774ddf49c52a, type: 3}
     isMusic: 0
     threeD: 0
     mute: 0
@@ -176,18 +175,3 @@ MonoBehaviour:
     loop: 0
     ignorePause: 0
     source: {fileID: 0}
---- !u!114 &5773163239060400930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4425023450364004268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba670ddb185e6641bce51dbe2a29bda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrototypeManager
-  isCircleTouch: 0
-  isTouchscreenSimulation: 0
-  randomizeEnemyCircles: 1

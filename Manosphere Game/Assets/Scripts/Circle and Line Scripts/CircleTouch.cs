@@ -11,6 +11,7 @@ public class CircleTouch : MonoBehaviour
     [SerializeField] bool isEnemy;
     [SerializeField] float infectionTime = 5f;
     [SerializeField] bool isTutorial;
+    bool didTutorialTask;
 
     public UnityEvent OnTutorialConnect;
     public UnityEvent OnTutorialEnemyDiscover;
@@ -50,6 +51,10 @@ public class CircleTouch : MonoBehaviour
 
     void Update()
     {
+        if(NumberOfConnections() >= 2 && !isEnemy && !IsConnectedToInfectedOrEnemy())
+            {
+                spriteManager.ChangeEmotion(Emotion.Happy);
+            }
         // Check which touch is currently interacting with the circle
         if (touchAction.IsPressed() && !hasTouch)
         {
@@ -78,7 +83,7 @@ public class CircleTouch : MonoBehaviour
             if (!isDragging)
             {
                 // Start line drawing if the touch just began and the touch is close enough to the circle
-                if (currentTouch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began && PositionIsOverCircle())
+                if (PositionIsOverCircle())
                 {
                     currentLine = Instantiate(linePrefab, linesParent.transform);
                     currentLineRenderer = currentLine.GetComponent<LineRenderer>();
@@ -131,13 +136,18 @@ public class CircleTouch : MonoBehaviour
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
-                if (isTutorial)
+                if (isTutorial && !didTutorialTask)
                 {
                     OnTutorialConnect.Invoke();
+                    didTutorialTask = true;
                 }
                 if (!isEnemy)
                 {
                     spriteManager.ChangeEmotion(Emotion.Connected);
+                    if(NumberOfConnections() >= 2)
+                    {
+                        spriteManager.ChangeEmotion(Emotion.Happy);
+                    }
                 }
                 CircleTouch otherCircleScript = hitCollider.GetComponent<CircleTouch>();
                 if (otherCircleScript != null)
@@ -310,6 +320,10 @@ public class CircleTouch : MonoBehaviour
                 circleScript.BacktrackLineInfection();
                 spriteManager.ChangeBase(Base.Enemy); // Light red for infected circles that are not enemies
                 if (isTutorial)
+                    {
+                        OnTutorialEnemyDiscover.Invoke();
+                    }
+                if (isTutorial)
                 {
                     OnTutorialEnemyDiscover.Invoke();
                 }
@@ -340,6 +354,10 @@ public class CircleTouch : MonoBehaviour
                         audioManager.Play("ConnectionMade2");
                     }
                 }
+                if(circleScript.NumberOfConnections() >= 2)
+                {
+                    spriteManager.ChangeEmotion(Emotion.Happy);
+                }
             }
         }
     }
@@ -355,6 +373,7 @@ public class CircleTouch : MonoBehaviour
         if (connectedCircles.Count > 0 && IsInfected() && !IsConnectedToInfectedOrEnemy())
         {
             Infect(false);
+            spriteManager.ChangeEmotion(Emotion.Connected);
         }
 
         //Changes Expression to Alone if not an enemy and has 0 Connections;

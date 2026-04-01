@@ -58,7 +58,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1077095946452992
-    m_Localized: BAH! Een incel! Verbreek de verbinding voordat ze anderen besmetten!
+    m_Localized: BAH! Een Incel-Influencer! Verbreek de verbinding voordat ze anderen
+      besmetten!
     m_Metadata:
       m_Items: []
   - m_Id: 1081113498288128
@@ -75,6 +76,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1130414609989632
     m_Localized: Maak nieuwe verbindingen met de eenzame haaien
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1419193568952320
+    m_Localized: Doppeltippen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1419502244560896
+    m_Localized: UnityEngine.GameObject, UnityEngine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1419502257143808
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445298506006528
+    m_Localized: "Jeder hat etwas zu sagen. H\xF6rt ihnen zu"
     m_Metadata:
       m_Items: []
   references:

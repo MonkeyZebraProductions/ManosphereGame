@@ -39,7 +39,7 @@ public class FadePopup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (touchAction != null && touchAction.WasPressedThisFrame())
+        if (touchAction != null && touchAction.triggered)
         {
             if ((circle != null && circle.PositionIsOverCircle()) || (circleTouch != null && circleTouch.PositionIsOverCircle()))
             {
@@ -66,52 +66,41 @@ public class FadePopup : MonoBehaviour
                 }
                 else
                 {
-                    _fadeIn = false;
-                    if (!_startFade)
-                    {
-                        _startFade = true;
-                        animator.Play("Popup Reversed");
-                        if (audioManager != null)
-                        {
-                            if (!audioManager.IsPlaying("TweetPopup"))
-                            {
-                                audioManager.Play("TweetReduction");
-                            }
-                        }
-                        if (BlackBackground != null)
-                        {
-                            BlackBackground.enabled = false;
-                        }
-                    }
+                    ForceFadeOut();
                 }
             }
             else
             {
                 if (_isfadedIn)
                 {
-                    _fadeIn = false;
-                    if (!_startFade)
-                    {
-                        _startFade = true;
-                        animator.Play("Popup Reversed");
-                        if (audioManager != null)
-                        {
-                            if (!audioManager.IsPlaying("TweetPopup"))
-                            {
-                                audioManager.Play("TweetReduction");
-                            }
-                        }
-                        if (BlackBackground != null)
-                        {
-                            BlackBackground.enabled = false;
-                        }
-                    }
+                    ForceFadeOut();
                 }
             }
             spriteManager.MoveSpriteLayer(_fadeIn);
         }
         
  
+    }
+
+    public void ForceFadeOut()
+    {
+        _fadeIn = false;
+        if (!_startFade)
+        {
+            _startFade = true;
+            animator.Play("Popup Reversed");
+            if (audioManager != null)
+            {
+                if (!audioManager.IsPlaying("TweetPopup"))
+                {
+                    audioManager.Play("TweetReduction");
+                }
+            }
+            if (BlackBackground != null)
+            {
+                BlackBackground.enabled = false;
+            }
+        }
     }
 
     private void FixedUpdate()

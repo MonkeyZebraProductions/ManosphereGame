@@ -832,8 +832,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
   StartTime: 180
-  TimeToPannel: 5
-  TimeToRestart: 10
+  TimeToPannel: 30
+  TimeToRestart: 60
   PopupMultiplier: 0.5
   _isSlowedTime: 0
   timeSinceNoInteraction: 0

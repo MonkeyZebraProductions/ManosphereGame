@@ -55,7 +55,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1077095946452992
-    m_Localized: GAH! An incel! Cut the connection before they infect others!
+    m_Localized: GAH! An incel influencer! Cut the connections before they connect
+      to others!
     m_Metadata:
       m_Items: []
   - m_Id: 1081113498288128
@@ -72,6 +73,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1130414609989632
     m_Localized: Reconnect with the lonely sharks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1419193568952320
+    m_Localized: Double Tap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1419502244560896
+    m_Localized: CursorManager, Assembly-CSharp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1419502257143808
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445298506006528
+    m_Localized: Everyone has something to say. Listen to them
     m_Metadata:
       m_Items: []
   references:

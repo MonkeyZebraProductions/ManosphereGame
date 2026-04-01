@@ -8,15 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PrototypeMultiTouchScene.unity
     guid: 31aa7e7e1f867ab4f84f63a7b240d5cc
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 09a0f25346353b14f81d692000105446
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/HenriqueGameScene.unity
+    guid: 8b5b8feb060e7434c92ac9bca9be1d37
+  - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: 759ae2655ce1e6c4592355acd7eaec22
-  - enabled: 1
-    path: Assets/Scenes/TutorialScene.unity
-    guid: e65f7ad19d1fc0744861fba3dccca448
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 66690edad75aa0d43a96b14fa5cb3cdb, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

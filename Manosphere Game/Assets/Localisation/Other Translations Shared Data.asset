@@ -67,6 +67,22 @@ MonoBehaviour:
     m_Key: TutorialScene/Tutorial Canvas/Reintergrate
     m_Metadata:
       m_Items: []
+  - m_Id: 1419193568952320
+    m_Key: TutorialScene/Tutorial Canvas/Double Tap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1419502244560896
+    m_Key: TutorialScene/Shark
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1419502257143808
+    m_Key: TutorialScene/Shark 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445298506006528
+    m_Key: TutorialScene/Tutorial Canvas/Text (TMP) 4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

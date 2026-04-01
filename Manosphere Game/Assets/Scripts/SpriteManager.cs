@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpriteManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class SpriteManager : MonoBehaviour
     [SerializeField] private Sprite[] DefaultAccessories;
     [SerializeField] private SpriteRenderer AccessoryRenderer;
     private int accessoryIndex;
+
+    [SerializeField] private Outline outline;
 
     void Start()
     {
@@ -67,12 +70,20 @@ public class SpriteManager : MonoBehaviour
                 {
                     AccessoryRenderer.enabled = true;
                 }
+                if(outline != null)
+                {
+                    outline.effectColor = new Color(0f, 0.6480346f, 1f, 0.5f);
+                }
                 break;
             case Base.Infected:
                 BaseRenderer.sprite = InfectedBase;
                 if (accessoryIndex <= 3 && AccessoryRenderer.enabled)
                 {
                     AccessoryRenderer.enabled = false;
+                }
+                if(outline != null)
+                {
+                    outline.effectColor = Color.red;
                 }
                 ChangeEmotion(Emotion.Infected);
                 break;
@@ -81,6 +92,10 @@ public class SpriteManager : MonoBehaviour
                 if (accessoryIndex <= 3 && AccessoryRenderer.enabled)
                 {
                     AccessoryRenderer.enabled = false;
+                }
+                if(outline != null)
+                {
+                    outline.effectColor = Color.red;
                 }
                 ChangeEmotion(Emotion.Infected);
                 break;

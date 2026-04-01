@@ -11,6 +11,7 @@ public class SetPopupPosition : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        rectTransform.position = EastTransform.position;
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.parent.position);
         float screenWidth = Camera.main.pixelWidth;
         float screenHeight = Camera.main.pixelHeight;
