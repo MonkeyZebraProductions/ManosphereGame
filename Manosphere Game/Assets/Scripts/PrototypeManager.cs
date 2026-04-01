@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using TMPro;
 
 public class PrototypeManager : MonoBehaviour
 {
@@ -21,8 +22,19 @@ public class PrototypeManager : MonoBehaviour
 
     private SpriteManager[] spriteManagers;
 
+    [Header("Debug")]
+    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI debugText;
+
+    float forgivenessTouchDistance = 0.25f;
+
     void Awake()
     {
+        if (text != null)
+        {
+            text.text = "Forgiveness Touch Distance: " + forgivenessTouchDistance.ToString("F2");
+        }
+
         if (isTouchscreenSimulation)
         {
             EnhancedTouchSupport.Enable();
@@ -44,9 +56,9 @@ public class PrototypeManager : MonoBehaviour
             {
                 CircleTypes randomCircleTypes = allCircleTypes[Random.Range(0, allCircleTypes.Count)];
                 randomCircleTypes.SetToCloseted();
+                
                 Circle randomCircle = randomCircleTypes.gameObject.GetComponent<Circle>();
                 CircleTouch randomCircleTouch = randomCircleTypes.gameObject.GetComponent<CircleTouch>();
-                //randomCircleTypes.gameObject.GetComponent<Circle>().SetEnemy(true);
                 if (randomCircleTouch != null)
                 {
                     randomCircleTouch.SetEnemy(true);
@@ -57,7 +69,6 @@ public class PrototypeManager : MonoBehaviour
                 }
                 allCircleTypes.Remove(randomCircleTypes);
             }
-           
         }
     }
 
@@ -102,7 +113,7 @@ public class PrototypeManager : MonoBehaviour
         Line[] lines = FindObjectsByType<Line>(FindObjectsSortMode.None);
         LineTouch[] touchs = FindObjectsByType<LineTouch>(FindObjectsSortMode.None);
         yield return new WaitForSeconds(0.2f);
-        if (lines.Length==0  && touchs.Length == 0)
+        if (lines.Length == 0  && touchs.Length == 0)
         {
             AllLinesCut.Invoke();
         }
@@ -131,6 +142,52 @@ public class PrototypeManager : MonoBehaviour
         else
         {
             AllInfectedCured.Invoke();
+        }
+    }
+
+    public void SettingForgivenessTouchDistance()
+    {
+        if (forgivenessTouchDistance == 0.25f)
+        {
+            forgivenessTouchDistance = 0.5f;
+        }
+        else if (forgivenessTouchDistance == 0.5f)
+        {
+            forgivenessTouchDistance = 1f;
+        }
+        else if (forgivenessTouchDistance == 1f)
+        {
+            forgivenessTouchDistance = 2f;
+        }
+        else
+        {
+            forgivenessTouchDistance = 0.25f;
+        }
+
+        text.text = "Forgiveness Touch Distance: " + forgivenessTouchDistance.ToString("F2");
+
+        CircleTouch[] allCircleTouches = FindObjectsByType<CircleTouch>(FindObjectsSortMode.None);
+        foreach (CircleTouch circleTouch in allCircleTouches)
+        {
+            circleTouch.SetForgivenessTouchDistance(forgivenessTouchDistance);
+        }
+    }
+
+    public void DebugMode()
+    {
+        if (debugText.text == "Debug Mode: OFF")
+        {
+            debugText.text = "Debug Mode: ON";
+        }
+        else
+        {
+            debugText.text = "Debug Mode: OFF";
+        }
+
+        CircleTouch[] allCircleTouches = FindObjectsByType<CircleTouch>(FindObjectsSortMode.None);
+        foreach (CircleTouch circleTouch in allCircleTouches)
+        {
+            circleTouch.ToggleDebugMode();
         }
     }
 }

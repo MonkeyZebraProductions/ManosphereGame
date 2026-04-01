@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using TMPro;
 
 public class CircleTouch : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class CircleTouch : MonoBehaviour
     public UnityEvent OnTutorialConnect;
     public UnityEvent OnTutorialEnemyDiscover;
 
+    [SerializeField] GameObject glow;
+    [SerializeField] TextMeshProUGUI debugText;
+    [SerializeField] GameObject debugTextObject;
+
     GameObject linesParent;
     GameObject currentLine;
     LineRenderer currentLineRenderer;
@@ -26,6 +31,8 @@ public class CircleTouch : MonoBehaviour
     float timeToInfect;
     float nextInfectionTime;
     bool hasTouch;
+    float forgivenessTouchDistance = 0.25f;
+    bool debugMode = false;
 
     private SpriteManager spriteManager;
     private AudioManager audioManager;
@@ -45,11 +52,25 @@ public class CircleTouch : MonoBehaviour
         circleType = GetComponent<CircleTypes>();
         spriteManager = GetComponentInChildren<SpriteManager>();
         audioManager = FindFirstObjectByType<AudioManager>();
-        //isEnemy = (circleType.StartingCircleEnum == CircleEnum.Closeted);
+    }
+
+    public void ToggleDebugMode()
+    {
+        debugMode = !debugMode;
+        if (!debugMode)
+        {
+            debugTextObject.SetActive(false);
+        }
+        else
+        {
+            debugTextObject.SetActive(true);
+        }
     }
 
     void Update()
     {
+        if (debugMode) debugText.text = "Touch Action Phase: " + (currentTouch != null ? currentTouch.phase.ReadValue().ToString() : "No Touch") + "\nHas Touch: " + hasTouch.ToString() + "\nIs In Progress: " + (currentTouch != null ? currentTouch.isInProgress.ToString() : "N/A");
+
         // Check which touch is currently interacting with the circle
         if (touchAction.IsPressed() && !hasTouch)
         {
@@ -59,7 +80,7 @@ public class CircleTouch : MonoBehaviour
                 Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position.ReadValue());
                 touchPosition.z = 0;
 
-                if (Vector3.Distance(touchPosition, transform.position) <= GetComponent<CircleCollider2D>().radius + 0.3f)
+                if (Vector3.Distance(touchPosition, transform.position) <= GetComponent<CircleCollider2D>().radius + forgivenessTouchDistance)
                 {
                     currentTouch = touch;
                     hasTouch = true;
@@ -77,12 +98,13 @@ public class CircleTouch : MonoBehaviour
         {
             if (!isDragging)
             {
-                // Start line drawing if the touch just began and the touch is close enough to the circle
-                if (currentTouch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began && PositionIsOverCircle())
+                // Start line drawing if the touch is close enough to the circle
+                if (PositionIsOverCircle())
                 {
                     currentLine = Instantiate(linePrefab, linesParent.transform);
                     currentLineRenderer = currentLine.GetComponent<LineRenderer>();
                     currentLineRenderer.SetPosition(0, transform.position);
+                    glow.SetActive(true);
                     
                     Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
                     touchPosition.z = 0;
@@ -126,6 +148,7 @@ public class CircleTouch : MonoBehaviour
             if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<CircleTouch>() != null && !hitCollider.GetComponent<CircleTouch>().IsDiscovered())
             {
                 currentLineRenderer.SetPosition(1, hitCollider.transform.position);
+                glow.SetActive(false);
                 currentLine.GetComponent<LineTouch>().SetCircles(gameObject, hitCollider.gameObject);
                 currentLine.GetComponent<LineTouch>().CreateLineCollider();
                 
@@ -181,6 +204,7 @@ public class CircleTouch : MonoBehaviour
             else
             {
                 Destroy(currentLine);
+                glow.SetActive(false);
             }
         }
 
@@ -290,10 +314,12 @@ public class CircleTouch : MonoBehaviour
 
     public bool PositionIsOverCircle()
     {
+        if (currentTouch == null) return false;
+
         Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
         touchPosition.z = 0;
         float distance = Vector3.Distance(touchPosition, transform.position);
-        return distance <= GetComponent<CircleCollider2D>().radius + 0.3f;
+        return distance <= GetComponent<CircleCollider2D>().radius + forgivenessTouchDistance;
     }
 
     public void AddConnectedCircle(GameObject circle)
@@ -472,6 +498,11 @@ public class CircleTouch : MonoBehaviour
     public void SetEnemy(bool enemy)
     {
         isEnemy = enemy;
+    }
+
+    public void SetForgivenessTouchDistance(float distance)
+    {
+        forgivenessTouchDistance = distance;
     }
 
     // For debugging purposes, visualize the max connection distance in the editor
