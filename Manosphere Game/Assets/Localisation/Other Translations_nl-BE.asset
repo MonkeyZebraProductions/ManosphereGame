@@ -53,7 +53,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 709753088315392
-    m_Localized: 'Alpha Frenzy, onthoud goed: vrouwtjeshaaien zijn slechts visvoer
+    m_Localized: 'Alpha Frenzy, onthoud goed: vrouwtjeshaaien zijn enkel visvoer
       en broedmachines. Vergeet dat nooit.'
     m_Metadata:
       m_Items: []
@@ -62,7 +62,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1081113498288128
-    m_Localized: Geweldig! Nu zijn ze wederzijds
+    m_Localized: Geweldig! Nu zijn ze mutuals
     m_Metadata:
       m_Items: []
   - m_Id: 1082654716264448
@@ -74,8 +74,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1130414609989632
-    m_Localized: Ze gingen de confrontatie aan met de eenzamen en de besmette om
-      hen te genezen
+    m_Localized: Maak nieuwe verbindingen met de eenzame haaien
     m_Metadata:
       m_Items: []
   references:

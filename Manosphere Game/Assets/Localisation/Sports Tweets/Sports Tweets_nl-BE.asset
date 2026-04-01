@@ -48,13 +48,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7
-    m_Localized: koude take maar de Shark Bowl is het grootste sportevenement op
-      de planeet en het is niet eens close
+    m_Localized: cold take maar de Shark Bowl is het grootste sportevenement op de
+      planeet, not even close
     m_Metadata:
       m_Items: []
   - m_Id: 8
-    m_Localized: Dit jaar gaat de Oceaan Cup echt waanzinnig worden met hoe de Atlantische
-      Oceaan nu aan het vissen is!
+    m_Localized: Ocean Cup gaat echt zot worden dit jaar met hoe de Atlantische Oceaan
+      nu aan het vissen is!
     m_Metadata:
       m_Items: []
   - m_Id: 9
@@ -62,8 +62,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10
-    m_Localized: Sharkbappe beweegt echt alsof de oceaan zelf bang van hem is, het
-      is het meest angstaanjagende wat ik ooit heb gezien
+    m_Localized: Sharkbappe zwemt echt alsof de oceaan schrik van hem heeft, meest
+      angstaanjagende dat ik ooit heb gezien
     m_Metadata:
       m_Items: []
   - m_Id: 11
@@ -90,8 +90,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 16
-    m_Localized: Ik kan niet geloven dat er haaien zijn die denken dat de Shark Bowl
-      groter is dan de Oceaan Cup?!
+    m_Localized: Zijn er echt haaien die denken dat de Shark Bowl groter is dan de
+      Oceaan Cup?!
     m_Metadata:
       m_Items: []
   - m_Id: 17
@@ -100,11 +100,11 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 18
     m_Localized: als ik mijn vin niet gebroken had toen ik jonger was zou ik nu een
-      proffesional zijn
+      professional zijn
     m_Metadata:
       m_Items: []
   - m_Id: 19
-    m_Localized: Ik mis het buiten zijn in open water, stenen schoppen met mijn boys
+    m_Localized: Ik mis buiten zijn in open water, stenen schoppen met de boys
     m_Metadata:
       m_Items: []
   references:
