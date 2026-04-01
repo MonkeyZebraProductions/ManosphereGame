@@ -10,7 +10,7 @@ public class CursorManager : MonoBehaviour
     public float timeSinceNoInteraction;
     private InputAction touchAction;
     private Animator animator;
-
+    private int TimeIncrease = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,7 @@ public class CursorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceNoInteraction += Time.deltaTime;
+        timeSinceNoInteraction += Time.deltaTime * TimeIncrease;
 
         image.enabled = (timeSinceNoInteraction > TimeToPannel);
 
@@ -38,8 +38,17 @@ public class CursorManager : MonoBehaviour
     {
         if(Step == 4)
         {
-            Destroy(gameObject);
+            TimeIncrease = 0;
         }
-        animator.SetInteger("Step",Step);
+        else
+        {
+            animator.SetInteger("Step", Step);
+
+        }
+    }
+
+    public void LoadNextScene(int buildIndex)
+    {
+        SceneManager.LoadScene(buildIndex);
     }
 }
