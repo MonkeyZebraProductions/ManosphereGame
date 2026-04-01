@@ -7,8 +7,8 @@ public class FadePopup : MonoBehaviour
 {
     [SerializeField] float FadeSpeed = 3f;
     [SerializeField] bool isTutorial;
+
     public UnityEvent TutorialOnFadeOut;
-    [SerializeField] bool noBackground;
 
     bool _isfadedIn, _isfadedOut, _startFade, _fadeIn;
     CanvasGroup canvasGroup;
@@ -32,14 +32,14 @@ public class FadePopup : MonoBehaviour
         spriteManager = GetComponentInChildren<SpriteManager>();
         animator = GetComponentInChildren<Animator>();
         audioManager = FindFirstObjectByType<AudioManager>();
-        if (!noBackground) BlackBackground = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+        //BlackBackground = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+        //Debug.Log(BlackBackground);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (touchAction != null && touchAction.WasPressedThisFrame())
-        if(touchAction != null && touchAction.triggered)
         {
             if ((circle != null && circle.PositionIsOverCircle()) || (circleTouch != null && circleTouch.PositionIsOverCircle()))
             {
@@ -50,7 +50,6 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup");
-
                         if(audioManager != null)
                         {
                             if(!audioManager.IsPlaying("TweetReduction"))
@@ -63,7 +62,6 @@ public class FadePopup : MonoBehaviour
                             BlackBackground.enabled = true;
                         }
 
-                        if (!noBackground) BlackBackground.enabled = true;
                     }
                 }
                 else
@@ -73,7 +71,6 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup Reversed");
-
                         if (audioManager != null)
                         {
                             if (!audioManager.IsPlaying("TweetPopup"))
@@ -85,8 +82,6 @@ public class FadePopup : MonoBehaviour
                         {
                             BlackBackground.enabled = false;
                         }
-
-                        if (!noBackground) BlackBackground.enabled = false;
                     }
                 }
             }
@@ -99,7 +94,6 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup Reversed");
-
                         if (audioManager != null)
                         {
                             if (!audioManager.IsPlaying("TweetPopup"))
@@ -111,13 +105,13 @@ public class FadePopup : MonoBehaviour
                         {
                             BlackBackground.enabled = false;
                         }
-
-                        if (!noBackground) BlackBackground.enabled = false;
                     }
                 }
             }
             spriteManager.MoveSpriteLayer(_fadeIn);
         }
+        
+ 
     }
 
     private void FixedUpdate()

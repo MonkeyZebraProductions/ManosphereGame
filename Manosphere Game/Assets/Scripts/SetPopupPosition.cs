@@ -15,8 +15,6 @@ public class SetPopupPosition : MonoBehaviour
         float screenWidth = Camera.main.pixelWidth;
         float screenHeight = Camera.main.pixelHeight;
 
-        rectTransform.position = NorthTransform.position;
-
         if(screenPos.y > screenHeight*0.75)
         {
             rectTransform.position = SouthTransform.position;
