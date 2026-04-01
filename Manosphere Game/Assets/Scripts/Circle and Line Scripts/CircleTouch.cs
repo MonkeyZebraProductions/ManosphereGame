@@ -92,8 +92,8 @@ public class CircleTouch : MonoBehaviour
         {
             if (!isDragging)
             {
-                // Start line drawing if the touch just began and the touch is close enough to the circle
-                if (currentTouch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began && PositionIsOverCircle())
+                // Start line drawing if the touch is close enough to the circle
+                if (PositionIsOverCircle())
                 {
                     currentLine = Instantiate(linePrefab, linesParent.transform);
                     currentLineRenderer = currentLine.GetComponent<LineRenderer>();
