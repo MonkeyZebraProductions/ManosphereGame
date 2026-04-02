@@ -300,6 +300,8 @@ public class CircleTouch : MonoBehaviour
 
     public bool PositionIsOverCircle()
     {
+        if (currentTouch == null) return false;
+
         Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
         touchPosition.z = 0;
         float distance = Vector3.Distance(touchPosition, transform.position);

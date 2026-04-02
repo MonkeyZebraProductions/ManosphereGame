@@ -219,8 +219,8 @@ MonoBehaviour:
     y: 0
     width: 391.2
     height: 492
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -325,8 +325,8 @@ MonoBehaviour:
     y: 0
     width: 361.59998
     height: 240
-  m_MinSize: {x: 50, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 51, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 43.2
+    y: 0
     width: 1536
     height: 36
   m_SerializedDataModeController:
@@ -646,8 +646,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 679.2
-    y: 79.200005
+    x: 680.2
+    y: 24
     width: 493.2
     height: 466
   m_SerializedDataModeController:
@@ -721,7 +721,7 @@ MonoBehaviour:
       height: 1385.8881
     m_MinimalGUI: 1
   m_defaultScale: 0.32109377
-  m_LastWindowPixelSize: {x: 616.5, y: 582.5}
+  m_LastWindowPixelSize: {x: 493.2, y: 466}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79.200005
+    y: 24
     width: 287
     height: 466
   m_SerializedDataModeController:
@@ -887,8 +887,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 288
-    y: 79.200005
+    x: 289
+    y: 24
     width: 389.2
     height: 466
   m_SerializedDataModeController:
@@ -1578,7 +1578,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 571.2
+    y: 516
     width: 1173.4
     height: 198.79999
   m_SerializedDataModeController:
@@ -1629,13 +1629,12 @@ MonoBehaviour:
       m_Data: 51780
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 51654
-    - m_Data: 51656
-    - m_Data: 51658
-    - m_Data: 51660
-    - m_Data: 51662
-    - m_Data: 51768
-    - m_Data: 51772
+    - m_Data: 51906
+    - m_Data: 51908
+    - m_Data: 51910
+    - m_Data: 51912
+    - m_Data: 51914
+    - m_Data: 51916
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1668,12 +1667,12 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 51654
-    - m_Data: 51656
-    - m_Data: 51658
-    - m_Data: 51660
-    - m_Data: 51662
-    - m_Data: 51772
+    - m_Data: 51906
+    - m_Data: 51908
+    - m_Data: 51910
+    - m_Data: 51912
+    - m_Data: 51914
+    - m_Data: 51916
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1799,8 +1798,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Localization Scene Controls\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1174.4
-    y: 79.200005
+    x: 1
+    y: 24
     width: 360.59998
     height: 214
   m_SerializedDataModeController:
@@ -1837,8 +1836,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1174.4
-    y: 319.2
+    x: 1
+    y: 264
     width: 360.59998
     height: 450.8
   m_SerializedDataModeController:

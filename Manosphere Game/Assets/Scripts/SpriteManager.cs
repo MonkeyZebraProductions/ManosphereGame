@@ -26,6 +26,9 @@ public class SpriteManager : MonoBehaviour
 
     void Start()
     {
+        float scaleX = transform.localScale.x * (Random.Range(0, 2) == 0 ? 1 : -1);
+        transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
+
         chosenDefaultBase = DefaultBases[Random.Range(0, DefaultBases.Length)];
         BaseRenderer.sprite = chosenDefaultBase;
         EmotionRenderer.sprite = AloneEmotion;

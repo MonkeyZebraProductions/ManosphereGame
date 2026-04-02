@@ -89,8 +89,8 @@ public class CircleTypes : MonoBehaviour
 
     public void ConvertToNormal()
     {
-        randomString.enabled = false;
+        if (randomString != null) randomString.enabled = false;
         ChosenStuct = originalStruct;
-        randomString.enabled = true;
+        if (randomString != null) randomString.enabled = true;
     }
 }
