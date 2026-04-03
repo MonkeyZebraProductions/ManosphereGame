@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class FadePopup : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class FadePopup : MonoBehaviour
 
     private SpriteRenderer BlackBackground;
     private AudioManager audioManager;
+
+    TouchControl currentTouch;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,7 +44,20 @@ public class FadePopup : MonoBehaviour
     {
         if (touchAction != null && touchAction.triggered)
         {
-            if ((circle != null && circle.PositionIsOverCircle()) || (circleTouch != null && circleTouch.PositionIsOverCircle()))
+            for (int i = 0; i < Touchscreen.current.touches.Count; i++)
+            {
+                TouchControl touch = Touchscreen.current.touches[i];
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position.ReadValue());
+                touchPosition.z = 0;
+
+                if (Vector3.Distance(touchPosition, transform.position) <= GetComponent<CircleCollider2D>().radius + 0.3f)
+                {
+                    currentTouch = touch;
+                    break;
+                }
+            }
+
+            if ((circle != null && PositionIsOverCircle()) || (circleTouch != null && PositionIsOverCircle()))
             {
                 if (_isfadedOut)
                 {
@@ -50,6 +66,7 @@ public class FadePopup : MonoBehaviour
                     {
                         _startFade = true;
                         animator.Play("Popup");
+                        circleTouch.EnableConnection();
                         if(audioManager != null)
                         {
                             if(!audioManager.IsPlaying("TweetReduction"))
@@ -80,6 +97,16 @@ public class FadePopup : MonoBehaviour
         }
         
  
+    }
+
+    bool PositionIsOverCircle()
+    {
+        if (currentTouch == null) return false;
+
+        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(currentTouch.position.ReadValue());
+        touchPosition.z = 0;
+        float distance = Vector3.Distance(touchPosition, transform.position);
+        return distance <= GetComponent<CircleCollider2D>().radius + 0.3f;
     }
 
     public void ForceFadeOut()

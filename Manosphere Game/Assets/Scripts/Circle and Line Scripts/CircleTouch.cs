@@ -27,10 +27,14 @@ public class CircleTouch : MonoBehaviour
     float timeToInfect;
     float nextInfectionTime;
     bool hasTouch;
+    bool canConnect;
 
     private SpriteManager spriteManager;
     private AudioManager audioManager;
     private CircleTypes circleType;
+    private GlowManager glowManager;
+
+    [SerializeField] GameObject notification;
 
     // Prevents players from connecting lines to enemies once they have been discovered
     bool enemyDiscovered;
@@ -39,6 +43,7 @@ public class CircleTouch : MonoBehaviour
     {
         isDragging = false;
         isInfected = false;
+        canConnect = false;
         linesParent = GameObject.Find("Connections");
         touchAction = InputSystem.actions.FindAction("Touch");
         timeToInfect = 0f;
@@ -46,7 +51,19 @@ public class CircleTouch : MonoBehaviour
         circleType = GetComponent<CircleTypes>();
         spriteManager = GetComponentInChildren<SpriteManager>();
         audioManager = FindFirstObjectByType<AudioManager>();
+        glowManager = GetComponent<GlowManager>();
         //isEnemy = (circleType.StartingCircleEnum == CircleEnum.Closeted);
+    }
+
+    public void EnableConnection()
+    {
+        canConnect = true;
+        notification.SetActive(false);
+    }
+
+    public bool CanConnect()
+    {
+        return canConnect;
     }
 
     void Update()
@@ -54,9 +71,15 @@ public class CircleTouch : MonoBehaviour
         if(NumberOfConnections() >= 2 && !isEnemy && !IsConnectedToInfectedOrEnemy())
             {
                 spriteManager.ChangeEmotion(Emotion.Happy);
+                glowManager.TurnOnGlow("green");
             }
+
+        if (isEnemy && enemyDiscovered)
+        {
+            glowManager.TurnOnGlow("red");
+        }
         // Check which touch is currently interacting with the circle
-        if (touchAction.IsPressed() && !hasTouch)
+        if (touchAction.IsPressed() && !hasTouch && canConnect)
         {
             for (int i = 0; i < Touchscreen.current.touches.Count; i++)
             {
@@ -94,6 +117,7 @@ public class CircleTouch : MonoBehaviour
                     currentLineRenderer.SetPosition(1, touchPosition);
                     
                     isDragging = true;
+                    glowManager.TurnOnGlow("white");
                 }
             }
             else
@@ -128,11 +152,12 @@ public class CircleTouch : MonoBehaviour
             Collider2D hitCollider = Physics2D.OverlapCircle(touchPosition, 0.3f, LayerMask.GetMask("No Cut"));
 
             // Check if the line ends over another circle that is not the same as the starting circle, is not already connected and is not an enemy that has already been discovered
-            if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<CircleTouch>() != null && !hitCollider.GetComponent<CircleTouch>().IsDiscovered())
+            if (hitCollider != null && hitCollider.gameObject != gameObject && hitCollider.CompareTag("Circle") && !connectedCircles.Contains(hitCollider.gameObject) && hitCollider.GetComponent<CircleTouch>() != null && !hitCollider.GetComponent<CircleTouch>().IsDiscovered() && hitCollider.GetComponent<CircleTouch>().CanConnect())
             {
                 currentLineRenderer.SetPosition(1, hitCollider.transform.position);
                 currentLine.GetComponent<LineTouch>().SetCircles(gameObject, hitCollider.gameObject);
                 currentLine.GetComponent<LineTouch>().CreateLineCollider();
+                glowManager.TurnOffGlow();
                 
                 // Add the connected circle to the list and also add this circle to the other circle's list
                 connectedCircles.Add(hitCollider.gameObject);
@@ -160,6 +185,7 @@ public class CircleTouch : MonoBehaviour
                 if (isEnemy)
                 {
                     enemyDiscovered = true;
+                    glowManager.TurnOnGlow("red");
                     spriteManager.ChangeBase(Base.Enemy);
                     currentLine.GetComponent<LineTouch>().InfectLine();
                     if (isTutorial)
@@ -191,6 +217,7 @@ public class CircleTouch : MonoBehaviour
             else
             {
                 Destroy(currentLine);
+                glowManager.TurnOffGlow();
             }
         }
 
@@ -319,6 +346,7 @@ public class CircleTouch : MonoBehaviour
             if (circleScript != null && isEnemy)
             {
                 enemyDiscovered = true;
+                glowManager.TurnOnGlow("red");
                 circleScript.BacktrackLineInfection();
                 spriteManager.ChangeBase(Base.Enemy); // Light red for infected circles that are not enemies
                 if (isTutorial)
@@ -419,6 +447,7 @@ public class CircleTouch : MonoBehaviour
         if (!isEnemy && infected)
         {
             spriteManager.ChangeBase(Base.Infected); // Light red for infected circles that are not enemies
+            glowManager.TurnOffGlow();
             circleType.ConvertToEnemy();
             if (audioManager != null)
             {

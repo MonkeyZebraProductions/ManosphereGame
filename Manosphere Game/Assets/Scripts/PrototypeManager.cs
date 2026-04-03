@@ -30,7 +30,7 @@ public class PrototypeManager : MonoBehaviour
         }
     }
 
-    // Choose up to 3 random circles to be enemies at the start of the game
+    // Choose up to 4 random circles to be enemies at the start of the game
     void Start()
     {
         Application.targetFrameRate = 30;
@@ -40,7 +40,7 @@ public class PrototypeManager : MonoBehaviour
             List<CircleTypes> allCircleTypes = new List<CircleTypes>();
             allCircleTypes.AddRange(FindObjectsByType<CircleTypes>(FindObjectsSortMode.None));
                
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 CircleTypes randomCircleTypes = allCircleTypes[Random.Range(0, allCircleTypes.Count)];
                 randomCircleTypes.SetToCloseted();
@@ -73,6 +73,12 @@ public class PrototypeManager : MonoBehaviour
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
             Application.Quit();
+        }
+
+        // Press M to go to the menu
+        if (Keyboard.current.mKey.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene(0);
         }
     }
 

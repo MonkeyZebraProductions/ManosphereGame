@@ -562,9 +562,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.3679244, g: 0.8904346, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.28275543, g: 0.32640254, b: 0.9924528, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -910,6 +910,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2380402197938705583, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2693715425254718324, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_text
       value: 0
@@ -1053,6 +1057,14 @@ PrefabInstance:
     - target: {fileID: 6758593228856593224, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: OnTutorialEnemyDiscover.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920247131634231014, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920247131634231014, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7366323985966854431, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_text
@@ -1292,67 +1304,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7943695890601223710, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
   m_PrefabInstance: {fileID: 147045809}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &167389288
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.28889
-      objectReference: {fileID: 0}
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 286908133590636809, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2118953494023723387, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_Name
-      value: Cut
-      objectReference: {fileID: 0}
-    - target: {fileID: 2118953494023723387, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f1d2f0d87f60ecd45a66c438063b5832, type: 3}
 --- !u!1 &171548119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,8 +1372,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288716960
-  m_fontColor: {r: 0.6289307, g: 0.6289307, b: 0.6289307, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1630,6 +1581,10 @@ PrefabInstance:
     - target: {fileID: 2377511748876234280, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380402197938705583, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
+      propertyPath: isTutorial
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2693715425254718324, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_text
@@ -2836,8 +2791,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288716960
-  m_fontColor: {r: 0.6289307, g: 0.6289307, b: 0.6289307, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3344,6 +3299,10 @@ PrefabInstance:
     - target: {fileID: 2377511748876234280, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380402197938705583, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
+      propertyPath: isTutorial
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2693715425254718324, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_text
@@ -3984,8 +3943,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288716960
-  m_fontColor: {r: 0.6289307, g: 0.6289307, b: 0.6289307, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5134,8 +5093,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288716960
-  m_fontColor: {r: 0.6289307, g: 0.6289307, b: 0.6289307, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5459,6 +5418,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2380402197938705583, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2693715425254718324, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_text
       value: 0
@@ -5598,6 +5561,14 @@ PrefabInstance:
     - target: {fileID: 6758593228856593224, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: OnTutorialEnemyDiscover.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920247131634231014, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920247131634231014, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7366323985966854431, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_text
@@ -6210,8 +6181,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288716960
-  m_fontColor: {r: 0.6289307, g: 0.6289307, b: 0.6289307, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6543,6 +6514,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2380402197938705583, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2693715425254718324, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_text
       value: 0
@@ -6787,14 +6762,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d25572e42b35c6f4bb048ef608a3048e, type: 3}
-    - target: {fileID: 8628372191375320767, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628372191375320767, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9193721516373344161, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
       propertyPath: m_text
       value: Floatin on in. The water feels good
@@ -7307,7 +7274,6 @@ SceneRoots:
   - {fileID: 2085969914}
   - {fileID: 2046786352}
   - {fileID: 813491052}
-  - {fileID: 167389288}
   - {fileID: 1864760523}
   - {fileID: 175188231}
   - {fileID: 612229404}

@@ -24,10 +24,20 @@ public class SpriteManager : MonoBehaviour
 
     [SerializeField] private Outline outline;
 
+    [SerializeField] private Transform notification;
+    [SerializeField] bool isTutorial;
+
     void Start()
     {
-        float scaleX = transform.localScale.x * (Random.Range(0, 2) == 0 ? 1 : -1);
-        transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
+        if (!isTutorial)
+        {
+            float randomValue = Random.Range(0, 2) == 0 ? 1 : -1;
+            float scaleX = transform.localScale.x * randomValue;
+            transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
+            float positionX = transform.localPosition.x * randomValue;
+            transform.localPosition = new Vector3(positionX, transform.localPosition.y, transform.localPosition.z);
+            notification.localScale = new Vector3(notification.localScale.x * randomValue, notification.localScale.y, notification.localScale.z);
+        }
 
         chosenDefaultBase = DefaultBases[Random.Range(0, DefaultBases.Length)];
         BaseRenderer.sprite = chosenDefaultBase;
