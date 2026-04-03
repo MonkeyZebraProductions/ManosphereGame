@@ -1,17 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI ScoreText;
     [SerializeField] private int ScoreIncrease = 1;
     public int TotalScore;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -30,5 +25,19 @@ public class ScoreManager : MonoBehaviour
     {
         TotalScore += score;
         ScoreText.text = TotalScore.ToString();
+    }
+
+    public void EndingScene()
+    {
+        PlayerPrefs.SetInt("FinalScore", TotalScore);
+
+        if (TotalScore >= 4000)
+        {
+            SceneManager.LoadScene("GoodEndingScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("BadEndingScene");
+        }
     }
 }

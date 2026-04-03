@@ -39,6 +39,11 @@ public class Timer : MonoBehaviour
             var ts = TimeSpan.FromSeconds(StartTime);
             TimerText.text = string.Format("{0:00}:{1:00}", (int)ts.TotalMinutes, (int)ts.Seconds);
 
+            if (StartTime <= 0)
+            {
+                EndGame.Invoke();
+                timerStarted = false;
+            }
         }
 
         timeSinceNoInteraction += Time.deltaTime;

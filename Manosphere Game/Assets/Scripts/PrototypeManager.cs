@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using TMPro;
 
 public class PrototypeManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class PrototypeManager : MonoBehaviour
     [SerializeField] bool isTouchscreenSimulation;
     [SerializeField] bool randomizeEnemyCircles;
     [SerializeField] bool isTutorial;
+    [SerializeField] bool endingScene;
+    [SerializeField] float timer;
+    [SerializeField] GameObject endingPanel;
+    [SerializeField] TextMeshProUGUI EndingScoreText;
 
     public UnityEvent AllLinesCut;
     public UnityEvent AllInfectedCured;
@@ -59,6 +64,22 @@ public class PrototypeManager : MonoBehaviour
             }
            
         }
+
+        if (endingScene)
+        {
+            StartCoroutine(ShowEndingPanel());
+        }
+    }
+
+    IEnumerator ShowEndingPanel()
+    {
+        if (EndingScoreText != null)
+        {
+            int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
+            EndingScoreText.text = "Score:\n" + finalScore.ToString();
+        }
+        yield return new WaitForSeconds(timer);
+        endingPanel.SetActive(true);
     }
 
     void Update()
@@ -80,11 +101,34 @@ public class PrototypeManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+
+        // Press G to go to the game scene
+        if (Keyboard.current.gKey.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        // Press 1 to go to Good Ending Scene
+        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene("GoodEndingScene");
+        }
+
+        // Press 2 to go to Bad Ending Scene
+        if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene("BadEndingScene");
+        }
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void TryAgain()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()

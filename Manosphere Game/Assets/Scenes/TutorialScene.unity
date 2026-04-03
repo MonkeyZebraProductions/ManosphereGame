@@ -665,9 +665,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrototypeManager
   isCircleTouch: 1
-  isTouchscreenSimulation: 1
+  isTouchscreenSimulation: 0
   randomizeEnemyCircles: 0
   isTutorial: 1
+  endingScene: 0
+  timer: 0
+  endingPanel: {fileID: 0}
+  EndingScoreText: {fileID: 0}
   AllLinesCut:
     m_PersistentCalls:
       m_Calls:

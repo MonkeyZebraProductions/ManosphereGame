@@ -193,6 +193,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7943695890601223710, guid: 1b0a9ba6e17344e409c024e9db9b31bc, type: 3}
   m_PrefabInstance: {fileID: 12157803}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &16697250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1563840003802066809, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
+  m_PrefabInstance: {fileID: 2097735613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cedb0bb7ba5231348be8eb85611425ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
 --- !u!1001 &72567135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3019,9 +3030,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrototypeManager
   isCircleTouch: 1
-  isTouchscreenSimulation: 1
+  isTouchscreenSimulation: 0
   randomizeEnemyCircles: 1
   isTutorial: 0
+  endingScene: 0
+  timer: 0
+  endingPanel: {fileID: 0}
+  EndingScoreText: {fileID: 0}
   AllLinesCut:
     m_PersistentCalls:
       m_Calls: []
@@ -4209,6 +4224,34 @@ PrefabInstance:
     - target: {fileID: 1699289655059660115, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462835725029425979, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
+      propertyPath: EndGame.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462835725029425979, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
+      propertyPath: EndGame.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462835725029425979, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
+      propertyPath: EndGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 16697250}
+    - target: {fileID: 2462835725029425979, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
+      propertyPath: EndGame.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462835725029425979, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
+      propertyPath: EndGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndingScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462835725029425979, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
+      propertyPath: EndGame.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScoreManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462835725029425979, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
+      propertyPath: EndGame.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3486079601976141235, guid: cbece29d7442b9946a8caab3fe4878be, type: 3}
       propertyPath: m_Color.a
